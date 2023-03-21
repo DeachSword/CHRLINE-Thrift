@@ -500,6 +500,7 @@ struct SquareFeatureSet {
     18: SquareFeature disableUpdateJoinMethod;
     19: SquareFeature disableTransferAdmin;
     20: SquareFeature creatingLiveTalk;
+    21: SquareFeature _notSure;
 }
 
 struct NoteStatus {
