@@ -495,6 +495,11 @@ struct SquareFeatureSet {
     13: SquareFeature creatingSquareChat;
     14: SquareFeature readonlyDefaultChat;
     15: SquareFeature showingAdvertisement;
+    16: SquareFeature delegateJoinToPlug;
+    17: SquareFeature delegateKickOutToPlug;
+    18: SquareFeature disableUpdateJoinMethod;
+    19: SquareFeature disableTransferAdmin;
+    20: SquareFeature creatingLiveTalk;
 }
 
 struct NoteStatus {
