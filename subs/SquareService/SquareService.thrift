@@ -22,4 +22,5 @@ service SquareService {
     CreateSquareResponse createSquare() throws(1: SquareException e);
     GetSquareChatAnnouncementsResponse getSquareChatAnnouncements() throws(1: SquareException e);
     GetSquareFeatureSetResponse getSquareFeatureSet() throws(1: SquareException e);
+    GetSquareChatFeatureSetResponse getSquareChatFeatureSet() throws(1: SquareException e);
 }

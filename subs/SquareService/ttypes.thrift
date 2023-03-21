@@ -840,3 +840,7 @@ struct GetSquareChatAnnouncementsResponse {
 struct GetSquareFeatureSetResponse {
     1: SquareFeatureSet squareFeatureSet;
 }
+
+struct GetSquareChatFeatureSetResponse {
+    1: SquareChatFeatureSet squareChatFeatureSet;
+}
