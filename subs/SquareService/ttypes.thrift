@@ -836,3 +836,7 @@ struct SquareChatAnnouncement {
 struct GetSquareChatAnnouncementsResponse {
     1: list<SquareChatAnnouncement> announcements;
 }
+
+struct GetSquareFeatureSetResponse {
+    1: SquareFeatureSet squareFeatureSet;
+}
