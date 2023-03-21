@@ -54,6 +54,7 @@ struct Profile {
     35: string videoProfile;
     36: map<string, string> statusMessageContentMetadata;
     37: AvatarProfile avatarProfile;
+    38: bool nftProfile;
 }
 
 struct AvatarProfile {
