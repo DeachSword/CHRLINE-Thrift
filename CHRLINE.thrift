@@ -163,6 +163,9 @@ struct Contact {
     42: string videoProfile;
     43: map<string, string> statusMessageContentMetadata;
     44: AvatarProfile avatarProfile;
+    45: string friendRingtone;
+    46: string friendRingbackTone;
+    47: bool nftProfile;
 }
 
 struct GetContactsV2Request {
