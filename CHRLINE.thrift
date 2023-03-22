@@ -288,6 +288,10 @@ struct Settings {
     101: map<SnsIdType, bool> eapAllowedToConnect;
     102: i64 agreementLineOutUse;
     103: i64 agreementLineOutProvideInfo;
+    104: bool notificationShowProfileImage;
+    105: i64 agreementPdpa;
+    106: string agreementLocationVersion;
+    107: bool zhdPageAllowedToShow;
 }
 
 struct E2EENegotiationResult {
