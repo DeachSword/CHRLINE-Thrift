@@ -717,7 +717,7 @@ struct UnsendMessageResponse {
 }
 
 struct FetchMyEventsResponse {
-    1: SquareMessage subscription;
+    1: SubscriptionState subscription;
     2: list<SquareEvent> events;
     3: string syncToken;
     4: string continuationToken;
