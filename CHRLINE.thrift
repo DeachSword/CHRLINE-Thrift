@@ -55,6 +55,7 @@ struct Profile {
     36: map<string, string> statusMessageContentMetadata;
     37: AvatarProfile avatarProfile;
     38: bool nftProfile;
+    39: PictureSource pictureSource;
 }
 
 struct AvatarProfile {
@@ -166,6 +167,7 @@ struct Contact {
     45: string friendRingtone;
     46: string friendRingbackTone;
     47: bool nftProfile;
+    48: PictureSource pictureSource;
 }
 
 struct GetContactsV2Request {

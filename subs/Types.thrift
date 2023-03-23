@@ -1125,3 +1125,10 @@ enum MessageReactionType {
 
 enum SquareChatAnnouncementType {
 }
+
+enum PictureSource {
+    NFT    = 1;
+    AVATAR = 2;
+    SNOW   = 3;
+    ARCZ   = 4;
+}
