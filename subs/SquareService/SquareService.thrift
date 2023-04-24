@@ -23,4 +23,9 @@ service SquareService {
     GetSquareChatAnnouncementsResponse getSquareChatAnnouncements() throws(1: SquareException e);
     GetSquareFeatureSetResponse getSquareFeatureSet() throws(1: SquareException e);
     GetSquareChatFeatureSetResponse getSquareChatFeatureSet() throws(1: SquareException e);
+    GetJoinedSquareChatThreadsResponse getJoinedSquareChatThreads() throws(1: SquareException e);
+    CreateSquareChatThreadResponse createSquareChatThread() throws(1: SquareException e);
+    GetSquareChatThreadResponse getSquareChatThread() throws(1: SquareException e);
+    JoinSquareChatThreadResponse joinSquareChatThread() throws(1: SquareException e);
+    SyncSquareMembersResponse syncSquareMembers() throws(1: SquareException e);
 }

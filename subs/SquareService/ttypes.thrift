@@ -844,3 +844,50 @@ struct GetSquareFeatureSetResponse {
 struct GetSquareChatFeatureSetResponse {
     1: SquareChatFeatureSet squareChatFeatureSet;
 }
+
+struct SyncSquareMembersResponse {
+    1: list<SquareMember> updatedSquareMembers;
+}
+
+enum SquareChatThreadState {
+    ACTIVE   = 1,
+    INACTIVE = 2;
+}
+
+struct SquareChatThread {
+    1: string squareChatThreadMid;
+    2: string squareChatMid;
+    3: string squareMid;
+    4: string messageId;
+    5: SquareChatThreadState state;
+}
+
+struct GetJoinedSquareChatThreadsResponse {
+    1: list<SquareChatThread> squareChatThreads;
+    2: string continuationToken;
+}
+
+struct CreateSquareChatThreadResponse {
+    1: SquareChatThread squareChatThread;
+}
+
+enum SquareChatThreadeMembershipState {
+    ACTIVATED   = 1,
+    DEACTIVATED = 2;
+}
+
+struct SquareChatThreadMember {
+    1: string squareMemberMid;
+    2: string squareChatThreadMid;
+    3: i64 revision;
+    4: SquareChatThreadeMembershipState membershipState;
+}
+
+struct GetSquareChatThreadResponse {
+    1: SquareChatThread squareChatThread;
+    2: SquareChatThreadMember mySquareChatThreadMember;
+}
+
+struct JoinSquareChatThreadResponse {
+    1: SquareChatThread squareChatThread;
+}
