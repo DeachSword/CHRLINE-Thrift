@@ -1,4 +1,5 @@
-include "./Types.thrift"
+include "../Exceptions.thrift"
+include "./ttypes.thrift"
 
 service TalkService {
     Profile getProfile(1: TalkSyncReason syncReason) throws(1: TalkException e);
@@ -60,15 +61,18 @@ service TalkService {
     list<Room> getRoomsV2(2: list<string> roomIds) throws(1: TalkException e);
     bool isUseridAvailable(2: string userid) throws(1: TalkException e);
     string acquireEncryptedAccessToken(2: FeatureType featureType) throws(1: TalkException e);
-    DeleteOtherFromChatResponse deleteOtherFromChat(1: DeleteOtherFromChatRequest request) throws(1: TalkException e);
-    InviteIntoChatResponse inviteIntoChat(1: InviteIntoChatRequest request) throws(1: TalkException e);
-    CancelChatInvitationRequest cancelChatInvitation(1: CancelChatInvitationRequest request) throws(1: TalkException e);
+    RejectChatInvitationResponse rejectChatInvitation(1: RejectChatInvitationRequest request) throws(1: TalkException e);
+    GetAllChatMidsResponse getAllChatMids(1: GetAllChatMidsRequest request, 2: i32 syncReason) throws(1: TalkException e);
     DeleteSelfFromChatResponse deleteSelfFromChat(1: DeleteSelfFromChatRequest request) throws(1: TalkException e);
-    AcceptChatInvitationResponse acceptChatInvitation(1: AcceptChatInvitationRequest request) throws(1: TalkException e);
+    FindChatByTicketResponse findChatByTicket(1: FindChatByTicketRequest request) throws(1: TalkException e);
+    InviteIntoChatResponse inviteIntoChat(1: InviteIntoChatRequest request) throws(1: TalkException e);
+    DeleteOtherFromChatResponse deleteOtherFromChat(1: DeleteOtherFromChatRequest request) throws(1: TalkException e);
+    CreateChatResponse createChat(1: CreateChatRequest request) throws(1: TalkException e);
     ReissueChatTicketResponse reissueChatTicket(1: ReissueChatTicketRequest request) throws(1: TalkException e);
-    FindChatByTicketResponse findChatByTicket(1: FindChatByTicketRequest findChatByTicket) throws(1: TalkException e);
-    AcceptChatInvitationByTicketResponse acceptChatInvitationByTicket(1: AcceptChatInvitationByTicketRequest request) throws(1: TalkException e);
+    CancelChatInvitationResponse cancelChatInvitation(1: CancelChatInvitationRequest request) throws(1: TalkException e);
     UpdateChatResponse updateChat(1: UpdateChatRequest request) throws(1: TalkException e);
+    AcceptChatInvitationResponse acceptChatInvitation(1: AcceptChatInvitationRequest request) throws(1: TalkException e);
+    AcceptChatInvitationByTicketResponse acceptChatInvitationByTicket(1: AcceptChatInvitationByTicketRequest request) throws(1: TalkException e);
     list<TMessageReadRange> getMessageReadRange(2: list<string> chatIds, 3: TalkSyncReason syncReason;) throws(1: TalkException e);
     void react(1: ReactRequest reactRequest) throws(1: TalkException e);
     list<Message> getPreviousMessagesV2WithRequest(2: GetPreviousMessagesV2Request request, 3: TalkSyncReason syncReason) throws(1: TalkException e);
@@ -78,4 +82,8 @@ service TalkService {
 ) throws(1: TalkException e);
     DetermineMediaMessageFlowResponse determineMediaMessageFlow(# 1: GetMediaMessageFlowRequest getMediaMessageFlowRequest;
 ) throws(1: TalkException e);
+    map<string, list<ChatRoomAnnouncement>> getChatRoomAnnouncementsBulk() throws(1: TalkException e);
+    list<ChatRoomAnnouncement> getChatRoomAnnouncements() throws(1: TalkException e);
+    void removeChatRoomAnnouncement() throws(1: TalkException e);
+    ChatRoomAnnouncement createChatRoomAnnouncement() throws(1: TalkException e);
 }

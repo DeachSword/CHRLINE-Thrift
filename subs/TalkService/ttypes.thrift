@@ -1,4 +1,67 @@
-include "./subs/Types.thrift"
+struct UpdateChatRequest {
+    1: i32 reqSeq;
+    2: Chat chat;
+    3: i32 updatedAttribute;
+}
+
+struct UpdateChatResponse {
+}
+
+struct AcceptChatInvitationByTicketRequest {
+    1: i32 reqSeq;
+    2: string chatMid;
+    3: string ticketId;
+}
+
+struct AcceptChatInvitationByTicketResponse {
+}
+
+struct AcceptChatInvitationRequest {
+    1: i32 reqSeq;
+    2: string chatMid;
+}
+
+struct ReissueChatTicketRequest {
+    1: i32 reqSeq;
+    2: string groupMid;
+}
+
+struct AcceptChatInvitationResponse {
+}
+
+struct ReissueChatTicketResponse {
+    1: string ticketId;
+}
+
+struct RejectChatInvitationRequest {
+    1: i32 reqSeq;
+    2: string chatMid;
+}
+
+struct GetAllChatMidsRequest {
+    1: optional bool withMemberChats;
+    2: optional bool withInvitedChats;
+}
+
+struct RejectChatInvitationResponse {
+}
+
+struct GetAllChatMidsResponse {
+    1: set<string> memberChatMids;
+    2: set<string> invitedChatMids;
+}
+
+struct CreateChatRequest {
+    1: i32 reqSeq;
+    2: i32 type;
+    3: optional string name;
+    4: set<string> targetUserMids;
+    5: optional string picturePath;
+}
+
+struct CreateChatResponse {
+    1: Chat chat;
+}
 
 struct BeaconCondition {
     1: string inFriends;
@@ -493,47 +556,12 @@ struct DeleteSelfFromChatRequest {
 struct DeleteSelfFromChatResponse {
 }
 
-struct AcceptChatInvitationRequest {
-    1: i32 reqSeq;
-    2: string chatMid;
-}
-
-struct AcceptChatInvitationResponse {
-}
-
-struct ReissueChatTicketRequest {
-    1: i32 reqSeq;
-    2: string groupMid;
-}
-
-struct ReissueChatTicketResponse {
-    1: string ticketId;
-}
-
 struct FindChatByTicketRequest {
     1: string ticketId;
 }
 
 struct FindChatByTicketResponse {
     1: Chat chat;
-}
-
-struct AcceptChatInvitationByTicketRequest {
-    1: i32 reqSeq;
-    2: string chatMid;
-    3: string ticketId;
-}
-
-struct AcceptChatInvitationByTicketResponse {
-}
-
-struct UpdateChatRequest {
-    1: i32 reqSeq;
-    2: Chat chat;
-    3: ChatAttribute updatedAttribute;
-}
-
-struct UpdateChatResponse {
 }
 
 struct RefreshAccessTokenRequest {
@@ -674,4 +702,27 @@ struct GlobalEvent {
 struct DetermineMediaMessageFlowResponse {
     1: map<ContentType, MediaMessageFlow> flowMap;
     2: i64 cacheTtlMillis;
+}
+
+struct ChatRoomAnnouncementContentMetadata {
+    1: string replace;
+    2: string sticonOwnership;
+    3: string postNotificationMetadata;
+}
+
+struct ChatRoomAnnouncementContents {
+    1: i32 displayFields;
+    2: string text;
+    3: string link;
+    4: string thumbnail;
+    5: ChatRoomAnnouncementContentMetadata contentMetadata;
+}
+
+struct ChatRoomAnnouncement {
+    1: i64 announcementSeq;
+    2: i32 type;
+    3: ChatRoomAnnouncementContents contents;
+    4: string creatorMid;
+    5: i64 createdTime;
+    6: i32 deletePermission;
 }
