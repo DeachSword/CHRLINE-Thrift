@@ -248,6 +248,8 @@ enum ErrorCode {
     MUST_REFRESH_V3_TOKEN                                 = 119;
     ALREADY_EXPIRED                                       = 120;
     USER_NOT_STICON_OWNER                                 = 121;
+    REFRESH_MEDIA_FLOW                                    = 122;
+    EXCEED_FOLLOWER_LIMIT                                 = 123;
 }
 
 enum LiffErrorCode {
@@ -705,6 +707,7 @@ enum OpType {
     NOTIFIED_SEND_REACTION              = 140;
     NOTIFIED_UPDATE_PROFILE_CONTENT     = 141;
     FAILED_DELIVERY_MESSAGE             = 142;
+    SEND_ENCRYPTED_E2EE_KEY_REQUESTED   = 143;
 }
 
 enum OpStatus {
