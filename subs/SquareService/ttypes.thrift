@@ -1,4 +1,3 @@
-include "../../CHRLINE.thrift"
 include "../Types.thrift"
 
 enum SquareMessageState {

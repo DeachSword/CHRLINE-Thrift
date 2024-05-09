@@ -187,3 +187,7 @@ struct StartLiveTalkResponse {
 
 struct UpdateLiveTalkAttrsResponse {
 }
+
+struct AcquireLiveTalkResponse {
+    1: LiveTalk liveTalk;
+}

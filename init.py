@@ -28,6 +28,8 @@ files = [
     r'./subs/SquareLiveTalkService/SquareLiveTalkService.thrift',
     r'./subs/SecondaryQrCodeLoginService/ttypes.thrift',
     r'./subs/SecondaryQrCodeLoginService/SecondaryQrCodeLoginService.thrift',
+    r'./subs/RelationService/ttypes.thrift',
+    r'./subs/RelationService/RelationService.thrift',
 ]
 cache_file = r'./CHRLINE_ALL.thrift'
 

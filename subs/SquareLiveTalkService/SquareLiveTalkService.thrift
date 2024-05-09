@@ -1,4 +1,3 @@
-include "../../CHRLINE.thrift"
 include "../Types.thrift"
 include "../Exceptions.thrift"
 include "./ttypes.thrift"
@@ -31,4 +30,5 @@ service SquareLiveTalkService {
     RequestToSpeakResponse requestToSpeak() throws(1: SquareException e);
     StartLiveTalkResponse startLiveTalk() throws(1: SquareException e);
     UpdateLiveTalkAttrsResponse updateLiveTalkAttrs() throws(1: SquareException e);
+    AcquireLiveTalkResponse acquireLiveTalk() throws(1: SquareException e);
 }
