@@ -30,6 +30,8 @@ files = [
     r'./subs/SecondaryQrCodeLoginService/SecondaryQrCodeLoginService.thrift',
     r'./subs/RelationService/ttypes.thrift',
     r'./subs/RelationService/RelationService.thrift',
+    r'./subs/ShopService/ttypes.thrift',
+    r'./subs/ShopService/ShopService.thrift',
 ]
 cache_file = r'./CHRLINE_ALL.thrift'
 
