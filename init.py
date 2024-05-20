@@ -32,6 +32,8 @@ files = [
     r'./subs/RelationService/RelationService.thrift',
     r'./subs/ShopService/ttypes.thrift',
     r'./subs/ShopService/ShopService.thrift',
+    r'./subs/ShopCollectionService/ttypes.thrift',
+    r'./subs/ShopCollectionService/ShopCollectionService.thrift',
 ]
 cache_file = r'./CHRLINE_ALL.thrift'
 
