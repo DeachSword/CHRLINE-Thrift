@@ -34,6 +34,8 @@ files = [
     r'./subs/ShopService/ShopService.thrift',
     r'./subs/ShopCollectionService/ttypes.thrift',
     r'./subs/ShopCollectionService/ShopCollectionService.thrift',
+    r'./subs/PremiumFontService/ttypes.thrift',
+    r'./subs/PremiumFontService/PremiumFontService.thrift',
 ]
 cache_file = r'./CHRLINE_ALL.thrift'
 
