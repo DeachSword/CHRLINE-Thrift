@@ -1,70 +1,68 @@
-
-
 enum UserType {
-    USER  = 1  
-    BOT   = 2  
+    USER = 1,
+    BOT  = 2,
 }
 
 struct RichString {
-    1: string                content;   
-    2: map<string, string>   meta;      
+    1: required string content,
+    2: required map<string, string> meta,
 }
 
 struct TargetProfileDetail {
-    1: i64             snapshotTimeMillis;   
-    2: string          profileName;          
-    3: string          picturePath;          
-    4: RichString      statusMessage;        
-    5: string          musicProfile;         
-    6: string          videoProfile;         
-    7: AvatarProfile   avatarProfile;        
-    8: PictureSource   pictureSource;        
-    9: string          pictureStatus;        
+    1: required i64 snapshotTimeMillis,
+    2: required string profileName,
+    3: required string picturePath,
+    4: required RichString statusMessage,
+    5: required string musicProfile,
+    6: required string videoProfile,
+    7: required AvatarProfile avatarProfile,
+    8: required PictureSource pictureSource,
+    9: required string pictureStatus,
 }
 
 struct UserFriendDetail {
-    1: i64      createdTime;      
-    3: string   overriddenName;   
-    4: i64      favoriteTime;     
-    6: bool     hidden;           
-    7: string   ringtone;         
-    8: string   ringbackTone;     
+    1: required i64 createdTime,
+    3: required string overriddenName,
+    4: required i64 favoriteTime,
+    6: required bool hidden,
+    7: required string ringtone,
+    8: required string ringbackTone,
 }
 
 struct BotFriendDetail {
-    1: i64    createdTime;    
-    4: i64    favoriteTime;   
-    6: bool   hidden;         
+    1: required i64 createdTime,
+    4: required i64 favoriteTime,
+    6: required bool hidden,
 }
 
 struct NotFriend {
 }
 
 struct FriendDetail {
-    1: UserFriendDetail   user;        
-    2: BotFriendDetail    bot;         
-    3: NotFriend          notFriend;   
+    1: required UserFriendDetail user,
+    2: required BotFriendDetail bot,
+    3: required NotFriend notFriend,
 }
 
 struct UserBlockDetail {
-    3: bool   deletedFromBlockList;   
+    3: required bool deletedFromBlockList,
 }
 
 struct BotBlockDetail {
-    3: bool   deletedFromBlockList;   
+    3: required bool deletedFromBlockList,
 }
 
 struct NotBlocked {
 }
 
 struct BlockDetail {
-    1: UserBlockDetail   user;         
-    2: BotBlockDetail    bot;          
-    3: NotBlocked        notBlocked;   
+    1: required UserBlockDetail user,
+    2: required BotBlockDetail bot,
+    3: required NotBlocked notBlocked,
 }
 
 struct RecommendationReasonSharedChat {
-    1: string   chatMid;   
+    1: required string chatMid,
 }
 
 struct RecommendationReasonReverseFriendByUserId {
@@ -77,60 +75,58 @@ struct RecommendationReasonReverseFriendByPhone {
 }
 
 struct RecommendationReason {
-    1: RecommendationReasonSharedChat              sharedChat;              
-    2: RecommendationReasonReverseFriendByUserId   reverseFriendByUserId;   
-    3: RecommendationReasonReverseFriendByQRCode   reverseFriendByQrCode;   
-    4: RecommendationReasonReverseFriendByPhone    reverseFriendByPhone;    
+    1: required RecommendationReasonSharedChat sharedChat,
+    2: required RecommendationReasonReverseFriendByUserId reverseFriendByUserId,
+    3: required RecommendationReasonReverseFriendByQRCode reverseFriendByQrCode,
+    4: required RecommendationReasonReverseFriendByPhone reverseFriendByPhone,
 }
 
 struct Recommended {
-    1: i64                          createdTime;   
-    2: list<RecommendationReason>   reasons;       
-    4: bool                         hidden;        
+    1: required i64 createdTime,
+    2: required list<RecommendationReason> reasons,
+    4: required bool hidden,
 }
 
 struct NotRecommended {
 }
 
 struct RecommendationDetail {
-    1: Recommended      recommendationDetail;   
-    2: NotRecommended   notRecommended;         
+    1: required Recommended recommendationDetail,
+    2: required NotRecommended notRecommended,
 }
 
 struct NotificationSetting {
-    1: bool   mute;   
+    1: required bool mute,
 }
 
 struct NotificationSettingEntry {
-    1: NotificationSetting   notificationSetting;   
+    1: required NotificationSetting notificationSetting,
 }
 
 struct GetContactV3Response {
-    1: string                     targetUserMid;              
-    2: UserType                   userType;                   
-    3: TargetProfileDetail        targetProfileDetail;        
-    4: FriendDetail               friendDetail;               
-    5: BlockDetail                blockDetail;                
-    6: RecommendationDetail       recommendationDetail;       
-    7: NotificationSettingEntry   notificationSettingEntry;   
+    1: required string targetUserMid,
+    2: required UserType userType,
+    3: required TargetProfileDetail targetProfileDetail,
+    4: required FriendDetail friendDetail,
+    5: required BlockDetail blockDetail,
+    6: required RecommendationDetail recommendationDetail,
+    7: required NotificationSettingEntry notificationSettingEntry,
 }
 
 struct GetContactsV3Response {
-    1: list<GetContactV3Response>   responses;   
+    1: required list<GetContactV3Response> responses,
 }
 
 struct AddFriendByMidResponse {
 }
 
 struct GetContactCalendarEventResponse {
-    1: string targetUserMid;
-    2: UserType userType;
-    3: ContactCalendarEvents contactCalendarEvents;
-    4: i64 snapshotTimeMillis;
+    1: required string targetUserMid,
+    2: required UserType userType,
+    3: required ContactCalendarEvents contactCalendarEvents,
+    4: required i64 snapshotTimeMillis,
 }
 
 struct GetContactCalendarEventsResponse {
-    1: list<GetContactCalendarEventResponse> responses;
+    1: required list<GetContactCalendarEventResponse> responses,
 }
-
-

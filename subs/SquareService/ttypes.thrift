@@ -1,892 +1,902 @@
 include "../Types.thrift"
 
 enum SquareMessageState {
-    SENT      = 1;
-    DELETED   = 2;
-    FORBIDDEN = 3;
-    UNSENT    = 4;
+    SENT      = 1,
+    DELETED   = 2,
+    FORBIDDEN = 3,
+    UNSENT    = 4,
 }
 
 enum SquareEventType {
-    RECEIVE_MESSAGE                              = 0;
-    SEND_MESSAGE                                 = 1;
-    MUTATE_MESSAGE                               = 41;
-    NOTIFIED_JOIN_SQUARE_CHAT                    = 2;
-    NOTIFIED_INVITE_INTO_SQUARE_CHAT             = 3;
-    NOTIFIED_LEAVE_SQUARE_CHAT                   = 4;
-    NOTIFIED_DESTROY_MESSAGE                     = 5;
-    NOTIFIED_MARK_AS_READ                        = 6;
-    NOTIFIED_UPDATE_SQUARE_MEMBER_PROFILE        = 7;
-    NOTIFIED_KICKOUT_FROM_SQUARE                 = 19;
-    NOTIFIED_SHUTDOWN_SQUARE                     = 18;
-    NOTIFIED_DELETE_SQUARE_CHAT                  = 20;
-    NOTIFIED_UPDATE_SQUARE_CHAT_PROFILE_NAME     = 30;
-    NOTIFIED_UPDATE_SQUARE_CHAT_PROFILE_IMAGE    = 31;
-    NOTIFIED_UPDATE_SQUARE_CHAT_MAX_MEMBER_COUNT = 38;
-    NOTIFIED_UPDATE_SQUARE_CHAT_ANNOUNCEMENT     = 37;
-    NOTIFIED_ADD_BOT                             = 33;
-    NOTIFIED_REMOVE_BOT                          = 34;
-    NOTIFIED_UPDATE_READONLY_CHAT                = 43;
-    NOTIFIED_UPDATE_MESSAGE_STATUS               = 46;
-    NOTIFIED_CHAT_POPUP                          = 48;
-    NOTIFIED_SYSTEM_MESSAGE                      = 49;
-    NOTIFIED_UPDATE_SQUARE                       = 8;
-    NOTIFIED_UPDATE_SQUARE_STATUS                = 9;
-    NOTIFIED_UPDATE_SQUARE_AUTHORITY             = 10;
-    NOTIFIED_UPDATE_SQUARE_MEMBER                = 11;
-    NOTIFIED_UPDATE_SQUARE_CHAT                  = 12;
-    NOTIFIED_UPDATE_SQUARE_CHAT_STATUS           = 13;
-    NOTIFIED_UPDATE_SQUARE_CHAT_MEMBER           = 14;
-    NOTIFIED_CREATE_SQUARE_MEMBER                = 15;
-    NOTIFIED_CREATE_SQUARE_CHAT_MEMBER           = 16;
-    NOTIFIED_UPDATE_SQUARE_MEMBER_RELATION       = 17;
-    NOTIFIED_UPDATE_SQUARE_FEATURE_SET           = 32;
-    NOTIFIED_UPDATE_SQUARE_CHAT_FEATURE_SET      = 50;
-    NOTIFIED_UPDATE_SQUARE_NOTE_STATUS           = 36;
-    NOTIFICATION_JOIN_REQUEST                    = 21;
-    NOTIFICATION_JOINED                          = 22;
-    NOTIFICATION_PROMOTED_COADMIN                = 23;
-    NOTIFICATION_PROMOTED_ADMIN                  = 24;
-    NOTIFICATION_DEMOTED_MEMBER                  = 25;
-    NOTIFICATION_KICKED_OUT                      = 26;
-    NOTIFICATION_SQUARE_DELETE                   = 27;
-    NOTIFICATION_SQUARE_CHAT_DELETE              = 28;
-    NOTIFICATION_MESSAGE                         = 29;
-    NOTIFICATION_POST_ANNOUNCEMENT               = 39;
-    NOTIFICATION_POST                            = 40;
-    NOTIFICATION_NEW_CHAT_MEMBER                 = 42;
-    NOTIFICATION_MESSAGE_REACTION                = 47;
+    RECEIVE_MESSAGE                              = 0,
+    SEND_MESSAGE                                 = 1,
+    NOTIFIED_JOIN_SQUARE_CHAT                    = 2,
+    NOTIFIED_INVITE_INTO_SQUARE_CHAT             = 3,
+    NOTIFIED_LEAVE_SQUARE_CHAT                   = 4,
+    NOTIFIED_DESTROY_MESSAGE                     = 5,
+    NOTIFIED_MARK_AS_READ                        = 6,
+    NOTIFIED_UPDATE_SQUARE_MEMBER_PROFILE        = 7,
+    NOTIFIED_UPDATE_SQUARE                       = 8,
+    NOTIFIED_UPDATE_SQUARE_STATUS                = 9,
+    NOTIFIED_UPDATE_SQUARE_AUTHORITY             = 10,
+    NOTIFIED_UPDATE_SQUARE_MEMBER                = 11,
+    NOTIFIED_UPDATE_SQUARE_CHAT                  = 12,
+    NOTIFIED_UPDATE_SQUARE_CHAT_STATUS           = 13,
+    NOTIFIED_UPDATE_SQUARE_CHAT_MEMBER           = 14,
+    NOTIFIED_CREATE_SQUARE_MEMBER                = 15,
+    NOTIFIED_CREATE_SQUARE_CHAT_MEMBER           = 16,
+    NOTIFIED_UPDATE_SQUARE_MEMBER_RELATION       = 17,
+    NOTIFIED_SHUTDOWN_SQUARE                     = 18,
+    NOTIFIED_KICKOUT_FROM_SQUARE                 = 19,
+    NOTIFIED_DELETE_SQUARE_CHAT                  = 20,
+    NOTIFICATION_JOIN_REQUEST                    = 21,
+    NOTIFICATION_JOINED                          = 22,
+    NOTIFICATION_PROMOTED_COADMIN                = 23,
+    NOTIFICATION_PROMOTED_ADMIN                  = 24,
+    NOTIFICATION_DEMOTED_MEMBER                  = 25,
+    NOTIFICATION_KICKED_OUT                      = 26,
+    NOTIFICATION_SQUARE_DELETE                   = 27,
+    NOTIFICATION_SQUARE_CHAT_DELETE              = 28,
+    NOTIFICATION_MESSAGE                         = 29,
+    NOTIFIED_UPDATE_SQUARE_CHAT_PROFILE_NAME     = 30,
+    NOTIFIED_UPDATE_SQUARE_CHAT_PROFILE_IMAGE    = 31,
+    NOTIFIED_UPDATE_SQUARE_FEATURE_SET           = 32,
+    NOTIFIED_ADD_BOT                             = 33,
+    NOTIFIED_REMOVE_BOT                          = 34,
+    NOTIFIED_UPDATE_SQUARE_NOTE_STATUS           = 36,
+    NOTIFIED_UPDATE_SQUARE_CHAT_ANNOUNCEMENT     = 37,
+    NOTIFIED_UPDATE_SQUARE_CHAT_MAX_MEMBER_COUNT = 38,
+    NOTIFICATION_POST_ANNOUNCEMENT               = 39,
+    NOTIFICATION_POST                            = 40,
+    MUTATE_MESSAGE                               = 41,
+    NOTIFICATION_NEW_CHAT_MEMBER                 = 42,
+    NOTIFIED_UPDATE_READONLY_CHAT                = 43,
+    NOTIFIED_UPDATE_MESSAGE_STATUS               = 46,
+    NOTIFICATION_MESSAGE_REACTION                = 47,
+    NOTIFIED_CHAT_POPUP                          = 48,
+    NOTIFIED_SYSTEM_MESSAGE                      = 49,
+    NOTIFIED_UPDATE_SQUARE_CHAT_FEATURE_SET      = 50,
+    NOTIFIED_UPDATE_LIVE_TALK                    = 51,
+    NOTIFICATION_LIVE_TALK                       = 52,
+    NOTIFIED_UPDATE_LIVE_TALK_INFO               = 53,
+    NOTIFICATION_THREAD_MESSAGE                  = 54,
+    NOTIFICATION_THREAD_MESSAGE_REACTION         = 55,
+    NOTIFIED_UPDATE_THREAD                       = 56,
+    NOTIFIED_UPDATE_THREAD_STATUS                = 57,
+    NOTIFIED_UPDATE_THREAD_MEMBER                = 58,
+    NOTIFIED_UPDATE_THREAD_ROOT_MESSAGE          = 59,
+    NOTIFIED_UPDATE_THREAD_ROOT_MESSAGE_STATUS   = 60,
 }
 
 enum SquareEventStatus {
-    NORMAL         = 1;
-    ALERT_DISABLED = 2;
+    NORMAL         = 1,
+    ALERT_DISABLED = 2,
 }
 
 struct SquareMessage {
-    1: Message message;
-    3: MIDType fromType;
-    4: i64 squareMessageRevision;
-    5: SquareMessageState state;
+    1: required Message message,
+    3: required MIDType fromType,
+    4: required i64 squareMessageRevision,
+    5: required SquareMessageState state,
 }
 
 enum SquareMembershipState {
-    JOIN_REQUESTED = 1;
-    JOINED         = 2;
-    REJECTED       = 3;
-    LEFT           = 4;
-    KICK_OUT       = 5;
-    BANNED         = 6;
-    DELETED        = 7;
+    JOIN_REQUESTED = 1,
+    JOINED         = 2,
+    REJECTED       = 3,
+    LEFT           = 4,
+    KICK_OUT       = 5,
+    BANNED         = 6,
+    DELETED        = 7,
 }
 
 enum SquareMemberRole {
-    ADMIN    = 1;
-    CO_ADMIN = 2;
-    MEMBER   = 10;
+    ADMIN    = 1,
+    CO_ADMIN = 2,
+    MEMBER   = 10,
 }
 
 struct SquarePreference {
-    1: i64 favoriteTimestamp;
-    2: bool notiForNewJoinRequest;
+    1: required i64 favoriteTimestamp,
+    2: required bool notiForNewJoinRequest,
 }
 
 struct SquareMember {
-    1: string squareMemberMid;
-    2: string squareMid;
-    3: string displayName;
-    4: string profileImageObsHash;
-    5: bool ableToReceiveMessage;
-    7: SquareMembershipState membershipState;
-    8: SquareMemberRole role;
-    9: i64 revision;
-    10: SquarePreference preference;
-    11: string joinMessage;
+    1: required string squareMemberMid,
+    2: required string squareMid,
+    3: required string displayName,
+    4: required string profileImageObsHash,
+    5: required bool ableToReceiveMessage,
+    7: required SquareMembershipState membershipState,
+    8: required SquareMemberRole role,
+    9: required i64 revision,
+    10: required SquarePreference preference,
+    11: required string joinMessage,
 }
 
 struct SquareMessageReaction {
-    1: MessageReactionType type;
-    2: SquareMember reactor;
-    3: i64 createdAt;
-    4: i64 updatedAt;
+    1: required MessageReactionType type,
+    2: required SquareMember reactor,
+    3: required i64 createdAt,
+    4: required i64 updatedAt,
 }
 
 struct SquareMessageReactionStatus {
-    1: i32 totalCount;
-    2: map<MessageReactionType, i32> countByReactionType;
-    3: SquareMessageReaction myReaction;
+    1: required i32 totalCount,
+    2: required map<MessageReactionType, i32> countByReactionType,
+    3: required SquareMessageReaction myReaction,
 }
 
 struct SquareEventReceiveMessage {
-    1: string squareChatMid;
-    2: SquareMessage squareMessage;
-    3: string senderDisplayName;
-    4: SquareMessageReactionStatus messageReactionStatus;
-    5: i64 senderRevision;
-    6: string squareMid;
+    1: required string squareChatMid,
+    2: required SquareMessage squareMessage,
+    3: required string senderDisplayName,
+    4: required SquareMessageReactionStatus messageReactionStatus,
+    5: required i64 senderRevision,
+    6: required string squareMid,
 }
 
 struct SquareEventSendMessage {
-    1: string squareChatMid;
-    2: SquareMessage squareMessage;
-    3: i32 reqSeq;
-    4: string senderDisplayName;
-    5: SquareMessageReactionStatus messageReactionStatus;
+    1: required string squareChatMid,
+    2: required SquareMessage squareMessage,
+    3: required i32 reqSeq,
+    4: required string senderDisplayName,
+    5: required SquareMessageReactionStatus messageReactionStatus,
 }
 
 struct SquareEventMutateMessage {
-    1: string squareChatMid;
-    2: SquareMessage squareMessage;
-    3: i32 reqSeq;
-    4: string senderDisplayName;
+    1: required string squareChatMid,
+    2: required SquareMessage squareMessage,
+    3: required i32 reqSeq,
+    4: required string senderDisplayName,
 }
 
 struct SquareEventNotifiedJoinSquareChat {
-    1: string squareChatMid;
-    2: SquareMember joinedMember;
+    1: required string squareChatMid,
+    2: required SquareMember joinedMember,
 }
 
 enum SquareMemberRelationState {
-    NONE    = 1;
-    BLOCKED = 2;
+    NONE    = 1,
+    BLOCKED = 2,
 }
 
 struct SquareMemberRelation {
-    1: SquareMemberRelationState state;
-    2: i64 revision;
+    1: required SquareMemberRelationState state,
+    2: required i64 revision,
 }
 
 struct SquareEventNotifiedInviteIntoSquareChat {
-    1: string squareChatMid;
-    2: list<SquareMember> invitees;
-    3: SquareMember invitor;
-    4: SquareMemberRelation invitorRelation;
+    1: required string squareChatMid,
+    2: required list<SquareMember> invitees,
+    3: required SquareMember invitor,
+    4: required SquareMemberRelation invitorRelation,
 }
 
 struct SquareEventNotifiedLeaveSquareChat {
-    1: string squareChatMid;
-    2: string squareMemberMid;
-    3: bool sayGoodbye;
-    4: SquareMember squareMember;
+    1: required string squareChatMid,
+    2: required string squareMemberMid,
+    3: required bool sayGoodbye,
+    4: required SquareMember squareMember,
 }
 
 struct SquareEventNotifiedDestroyMessage {
-    1: string squareChatMid;
-    3: string messageId;
+    1: required string squareChatMid,
+    3: required string messageId,
 }
 
 struct SquareEventNotifiedMarkAsRead {
-    1: string squareChatMid;
-    2: string sMemberMid;
-    4: string messageId;
+    1: required string squareChatMid,
+    2: required string sMemberMid,
+    4: required string messageId,
 }
 
 struct SquareEventNotifiedUpdateSquareMemberProfile {
-    1: string squareChatMid;
-    2: SquareMember squareMember;
+    1: required string squareChatMid,
+    2: required SquareMember squareMember,
 }
 
 struct SquareEventNotifiedKickoutFromSquare {
-    1: string squareChatMid;
-    2: list<SquareMember> kickees;
-    4: SquareMember kicker;
+    1: required string squareChatMid,
+    2: required list<SquareMember> kickees,
+    4: required SquareMember kicker,
 }
 
 enum SquareType {
-    CLOSED = 0;
-    OPEN   = 1;
+    CLOSED = 0,
+    OPEN   = 1,
 }
 
 enum SquareState {
-    ALIVE     = 0;
-    DELETED   = 1;
-    SUSPENDED = 2;
+    ALIVE     = 0,
+    DELETED   = 1,
+    SUSPENDED = 2,
 }
 
 enum SquareEmblem {
-    SUPER    = 1;
-    OFFICIAL = 2;
+    SUPER    = 1,
+    OFFICIAL = 2,
 }
 
 enum SquareJoinMethodType {
-    NONE     = 0;
-    APPROVAL = 1;
-    CODE     = 2;
+    NONE     = 0,
+    APPROVAL = 1,
+    CODE     = 2,
 }
 
 struct ApprovalValue {
-    1: string message;
+    1: required string message,
 }
 
 struct CodeValue {
-    1: string code;
+    1: required string code,
 }
 
 struct SquareJoinMethodValue {
-    1: ApprovalValue approvalValue;
-    2: CodeValue codeValue;
+    1: required ApprovalValue approvalValue,
+    2: required CodeValue codeValue,
 }
 
 struct SquareJoinMethod {
-    1: SquareJoinMethodType type;
-    2: SquareJoinMethodValue value;
+    1: required SquareJoinMethodType type,
+    2: required SquareJoinMethodValue value,
 }
 
 enum BooleanState {
-    NONE = 0;
-    OFF  = 1;
-    ON   = 2;
+    NONE = 0,
+    OFF  = 1,
+    ON   = 2,
 }
 
 struct Square {
-    1: string mid;
-    2: string name;
-    3: string welcomeMessage;
-    4: string profileImageObsHash;
-    5: string desc;
-    6: bool searchable;
-    7: SquareType type;
-    8: i32 categoryId;
-    9: string invitationURL;
-    10: i64 revision;
-    11: bool ableToUseInvitationTicket;
-    12: SquareState state;
-    13: list<SquareEmblem> emblems;
-    14: SquareJoinMethod joinMethod;
-    15: BooleanState adultOnly;
-    16: list<string> svcTags;
-    17: i64 createdAt;
+    1: required string mid,
+    2: required string name,
+    3: required string welcomeMessage,
+    4: required string profileImageObsHash,
+    5: required string desc,
+    6: required bool searchable,
+    7: required SquareType type,
+    8: required i32 categoryId,
+    9: required string invitationURL,
+    10: required i64 revision,
+    11: required bool ableToUseInvitationTicket,
+    12: required SquareState state,
+    13: required list<SquareEmblem> emblems,
+    14: required SquareJoinMethod joinMethod,
+    15: required BooleanState adultOnly,
+    16: required list<string> svcTags,
+    17: required i64 createdAt,
 }
 
 struct SquareEventNotifiedShutdownSquare {
-    1: string squareChatMid;
-    2: Square square;
+    1: required string squareChatMid,
+    2: required Square square,
 }
 
 enum SquareChatType {
-    OPEN           = 1;
-    SECRET         = 2;
-    ONE_ON_ONE     = 3;
-    SQUARE_DEFAULT = 4;
+    OPEN           = 1,
+    SECRET         = 2,
+    ONE_ON_ONE     = 3,
+    SQUARE_DEFAULT = 4,
 }
 
 enum SquareChatState {
-    ALIVE     = 0;
-    DELETED   = 1;
-    SUSPENDED = 2;
+    ALIVE     = 0,
+    DELETED   = 1,
+    SUSPENDED = 2,
 }
 
 struct MessageVisibility {
-    1: bool showJoinMessage;
-    2: bool showLeaveMessage;
-    3: bool showKickoutMessage;
+    1: required bool showJoinMessage,
+    2: required bool showLeaveMessage,
+    3: required bool showKickoutMessage,
 }
 
 struct SquareChat {
-    1: string squareChatMid;
-    2: string squareMid;
-    3: SquareChatType type;
-    4: string name;
-    5: string chatImageObsHash;
-    6: i64 squareChatRevision;
-    7: i32 maxMemberCount;
-    8: SquareChatState state;
-    9: string invitationUrl;
-    10: MessageVisibility messageVisibility;
-    11: BooleanState ableToSearchMessage;
+    1: required string squareChatMid,
+    2: required string squareMid,
+    3: required SquareChatType type,
+    4: required string name,
+    5: required string chatImageObsHash,
+    6: required i64 squareChatRevision,
+    7: required i32 maxMemberCount,
+    8: required SquareChatState state,
+    9: required string invitationUrl,
+    10: required MessageVisibility messageVisibility,
+    11: required BooleanState ableToSearchMessage,
 }
 
 struct SquareEventNotifiedDeleteSquareChat {
-    1: SquareChat squareChat;
+    1: required SquareChat squareChat,
 }
 
 struct SquareEventNotifiedUpdateSquareChatProfileName {
-    1: string squareChatMid;
-    2: SquareMember editor;
-    3: string updatedChatName;
+    1: required string squareChatMid,
+    2: required SquareMember editor,
+    3: required string updatedChatName,
 }
 
 struct SquareEventNotifiedUpdateSquareChatProfileImage {
-    1: string squareChatMid;
-    2: SquareMember editor;
+    1: required string squareChatMid,
+    2: required SquareMember editor,
 }
 
 struct SquareEventNotifiedUpdateSquareChatMaxMemberCount {
-    1: string squareChatMid;
-    2: i32 maxMemberCount;
-    3: SquareMember editor;
+    1: required string squareChatMid,
+    2: required i32 maxMemberCount,
+    3: required SquareMember editor,
 }
 
 struct SquareEventNotifiedAddBot {
-    1: string squareChatMid;
-    2: SquareMember squareMember;
-    3: string botMid;
-    4: string botDisplayName;
+    1: required string squareChatMid,
+    2: required SquareMember squareMember,
+    3: required string botMid,
+    4: required string botDisplayName,
 }
 
 struct SquareEventNotifiedRemoveBot {
-    1: string squareChatMid;
-    2: SquareMember squareMember;
-    3: string botMid;
-    4: string botDisplayName;
+    1: required string squareChatMid,
+    2: required SquareMember squareMember,
+    3: required string botMid,
+    4: required string botDisplayName,
 }
 
 struct SquareEventNotifiedUpdateReadonlyChat {
-    1: string squareChatMid;
-    2: bool readonly;
+    1: required string squareChatMid,
+    2: required bool readonly,
 }
 
 enum MessageStatusType {
 }
 
 struct MessageStatusContents {
-    1: SquareMessageReactionStatus messageReactionStatus;
+    1: required SquareMessageReactionStatus messageReactionStatus,
 }
 
 struct SquareMessageStatus {
-    1: string squareChatMid;
-    2: string globalMessageId;
-    3: MessageStatusType type;
-    4: MessageStatusContents contents;
-    5: i64 publishedAt;
+    1: required string squareChatMid,
+    2: required string globalMessageId,
+    3: required MessageStatusType type,
+    4: required MessageStatusContents contents,
+    5: required i64 publishedAt,
 }
 
 struct SquareEventNotifiedUpdateMessageStatus {
-    1: string squareChatMid;
-    2: string messageId;
-    3: SquareMessageStatus messageStatus;
+    1: required string squareChatMid,
+    2: required string messageId,
+    3: required SquareMessageStatus messageStatus,
 }
 
 struct UrlButton {
-    1: string text;
-    2: string url;
+    1: required string text,
+    2: required string url,
 }
 
 struct TextButton {
-    1: string text;
+    1: required string text,
 }
 
 struct OkButton {
-    1: string text;
+    1: required string text,
 }
 
 struct ButtonContent {
-    1: UrlButton urlButton;
-    2: TextButton textButton;
-    3: OkButton okButton;
+    1: required UrlButton urlButton,
+    2: required TextButton textButton,
+    3: required OkButton okButton,
 }
 
 struct SquareEventChatPopup {
-    1: string squareChatMid;
-    2: i64 popupId;
-    3: string flexJson;
-    4: ButtonContent button;
+    1: required string squareChatMid,
+    2: required i64 popupId,
+    3: required string flexJson,
+    4: required ButtonContent button,
 }
 
 struct SquareEventNotifiedSystemMessage {
-    1: string squareChatMid;
-    2: string text;
+    1: required string squareChatMid,
+    2: required string text,
 }
 
 struct SquareEventNotifiedUpdateSquare {
-    1: string squareChatMid;
-    2: Square square;
+    1: required string squareChatMid,
+    2: required Square square,
 }
 
 struct SquareStatus {
-    1: i32 memberCount;
-    2: i32 joinRequestCount;
-    3: i64 lastJoinRequestAt;
-    4: i32 openChatCount;
+    1: required i32 memberCount,
+    2: required i32 joinRequestCount,
+    3: required i64 lastJoinRequestAt,
+    4: required i32 openChatCount,
 }
 
 struct SquareEventNotifiedUpdateSquareStatus {
-    1: string squareChatMid;
-    2: SquareStatus squareStatus;
+    1: required string squareChatMid,
+    2: required SquareStatus squareStatus,
 }
 
 struct SquareEventNotifiedUpdateSquareMember {
-    1: string squareChatMid;
-    2: string squareMemberMid;
-    3: SquareMember squareMember;
+    1: required string squareChatMid,
+    2: required string squareMemberMid,
+    3: required SquareMember squareMember,
 }
 
 struct SquareEventNotifiedUpdateSquareChat {
-    1: string squareMid;
-    2: string squareChatMid;
-    3: SquareChat squareChat;
+    1: required string squareMid,
+    2: required string squareChatMid,
+    3: required SquareChat squareChat,
 }
 
 enum NotifiedMessageType {
-    MENTION = 1;
-    REPLY   = 2;
+    MENTION = 1,
+    REPLY   = 2,
 }
 
 struct SquareChatStatusWithoutMessage {
-    1: i32 memberCount;
-    2: i32 unreadMessageCount;
-    3: string markedAsReadMessageId;
-    4: string mentionedMessageId;
-    5: NotifiedMessageType notifiedMessageType;
+    1: required i32 memberCount,
+    2: required i32 unreadMessageCount,
+    3: required string markedAsReadMessageId,
+    4: required string mentionedMessageId,
+    5: required NotifiedMessageType notifiedMessageType,
 }
 
 struct SquareEventNotifiedUpdateSquareChatStatus {
-    1: string squareChatMid;
-    2: SquareChatStatusWithoutMessage statusWithoutMessage;
+    1: required string squareChatMid,
+    2: required SquareChatStatusWithoutMessage statusWithoutMessage,
 }
 
 enum SquareChatMembershipState {
-    JOINED = 1;
-    LEFT   = 2;
+    JOINED = 1,
+    LEFT   = 2,
 }
 
 struct SquareChatMember {
-    1: string squareMemberMid;
-    2: string squareChatMid;
-    3: i64 revision;
-    4: SquareChatMembershipState membershipState;
-    5: bool notificationForMessage;
-    6: bool notificationForNewMember;
+    1: required string squareMemberMid,
+    2: required string squareChatMid,
+    3: required i64 revision,
+    4: required SquareChatMembershipState membershipState,
+    5: required bool notificationForMessage,
+    6: required bool notificationForNewMember,
 }
 
 struct SquareEventNotifiedUpdateSquareChatMember {
-    1: string squareChatMid;
-    2: SquareChatMember squareChatMember;
+    1: required string squareChatMid,
+    2: required SquareChatMember squareChatMember,
 }
 
 struct SquareAuthority {
-    1: string squareMid;
-    2: SquareMemberRole updateSquareProfile;
-    3: SquareMemberRole inviteNewMember;
-    4: SquareMemberRole approveJoinRequest;
-    5: SquareMemberRole createPost;
-    6: SquareMemberRole createOpenSquareChat;
-    7: SquareMemberRole deleteSquareChatOrPost;
-    8: SquareMemberRole removeSquareMember;
-    9: SquareMemberRole grantRole;
-    10: SquareMemberRole enableInvitationTicket;
-    11: i64 revision;
-    12: SquareMemberRole createSquareChatAnnouncement;
-    13: SquareMemberRole updateMaxChatMemberCount;
-    14: SquareMemberRole useReadonlyDefaultChat;
+    1: required string squareMid,
+    2: required SquareMemberRole updateSquareProfile,
+    3: required SquareMemberRole inviteNewMember,
+    4: required SquareMemberRole approveJoinRequest,
+    5: required SquareMemberRole createPost,
+    6: required SquareMemberRole createOpenSquareChat,
+    7: required SquareMemberRole deleteSquareChatOrPost,
+    8: required SquareMemberRole removeSquareMember,
+    9: required SquareMemberRole grantRole,
+    10: required SquareMemberRole enableInvitationTicket,
+    11: required i64 revision,
+    12: required SquareMemberRole createSquareChatAnnouncement,
+    13: required SquareMemberRole updateMaxChatMemberCount,
+    14: required SquareMemberRole useReadonlyDefaultChat,
 }
 
 struct SquareEventNotifiedUpdateSquareAuthority {
-    1: string squareMid;
-    2: SquareAuthority squareAuthority;
+    1: required string squareMid,
+    2: required SquareAuthority squareAuthority,
 }
 
 enum SquareFeatureControlState {
-    DISABLED = 1;
-    ENABLED  = 2;
+    DISABLED = 1,
+    ENABLED  = 2,
 }
 
 struct SquareFeature {
-    1: SquareFeatureControlState controlState;
-    2: BooleanState booleanValue;
+    1: required SquareFeatureControlState controlState,
+    2: required BooleanState booleanValue,
 }
 
 struct SquareFeatureSet {
-    1: string squareMid;
-    2: i64 revision;
-    11: SquareFeature creatingSecretSquareChat;
-    12: SquareFeature invitingIntoOpenSquareChat;
-    13: SquareFeature creatingSquareChat;
-    14: SquareFeature readonlyDefaultChat;
-    15: SquareFeature showingAdvertisement;
-    16: SquareFeature delegateJoinToPlug;
-    17: SquareFeature delegateKickOutToPlug;
-    18: SquareFeature disableUpdateJoinMethod;
-    19: SquareFeature disableTransferAdmin;
-    20: SquareFeature creatingLiveTalk;
-    21: SquareFeature disableUpdateSearchable;
+    1: required string squareMid,
+    2: required i64 revision,
+    11: required SquareFeature creatingSecretSquareChat,
+    12: required SquareFeature invitingIntoOpenSquareChat,
+    13: required SquareFeature creatingSquareChat,
+    14: required SquareFeature readonlyDefaultChat,
+    15: required SquareFeature showingAdvertisement,
+    16: required SquareFeature delegateJoinToPlug,
+    17: required SquareFeature delegateKickOutToPlug,
+    18: required SquareFeature disableUpdateJoinMethod,
+    19: required SquareFeature disableTransferAdmin,
+    20: required SquareFeature creatingLiveTalk,
+    21: required SquareFeature disableUpdateSearchable,
 }
 
 struct NoteStatus {
-    1: i32 noteCount;
-    2: i64 latestCreatedAt;
+    1: required i32 noteCount,
+    2: required i64 latestCreatedAt,
 }
 
 struct SquareEventNotifiedCreateSquareMember {
-    1: Square square;
-    2: SquareAuthority squareAuthority;
-    3: SquareStatus squareStatus;
-    4: SquareMember squareMember;
-    5: SquareFeatureSet squareFeatureSet;
-    6: NoteStatus noteStatus;
+    1: required Square square,
+    2: required SquareAuthority squareAuthority,
+    3: required SquareStatus squareStatus,
+    4: required SquareMember squareMember,
+    5: required SquareFeatureSet squareFeatureSet,
+    6: required NoteStatus noteStatus,
 }
 
 struct SquareChatStatus {
-    3: SquareMessage lastMessage;
-    4: string senderDisplayName;
-    5: SquareChatStatusWithoutMessage otherStatus;
+    3: required SquareMessage lastMessage,
+    4: required string senderDisplayName,
+    5: required SquareChatStatusWithoutMessage otherStatus,
 }
 
 enum SquareChatFeatureControlState {
-    DISABLED = 1;
-    ENABLED  = 2;
+    DISABLED = 1,
+    ENABLED  = 2,
 }
 
 struct SquareChatFeature {
-    1: SquareChatFeatureControlState controlState;
-    2: BooleanState booleanValue;
+    1: required SquareChatFeatureControlState controlState,
+    2: required BooleanState booleanValue,
 }
 
 struct SquareChatFeatureSet {
-    1: string squareChatMid;
-    2: i64 revision;
-    11: SquareChatFeature disableUpdateMaxChatMemberCount;
-    12: SquareChatFeature disableMarkAsReadEvent;
+    1: required string squareChatMid,
+    2: required i64 revision,
+    11: required SquareChatFeature disableUpdateMaxChatMemberCount,
+    12: required SquareChatFeature disableMarkAsReadEvent,
 }
 
 struct SquareEventNotifiedCreateSquareChatMember {
-    1: SquareChat chat;
-    2: SquareChatStatus chatStatus;
-    3: SquareChatMember chatMember;
-    4: i64 joinedAt;
-    5: SquareMember peerSquareMember;
-    6: SquareChatFeatureSet squareChatFeatureSet;
+    1: required SquareChat chat,
+    2: required SquareChatStatus chatStatus,
+    3: required SquareChatMember chatMember,
+    4: required i64 joinedAt,
+    5: required SquareMember peerSquareMember,
+    6: required SquareChatFeatureSet squareChatFeatureSet,
 }
 
 struct SquareEventNotifiedUpdateSquareMemberRelation {
-    1: string squareMid;
-    2: string myMemberMid;
-    3: string targetSquareMemberMid;
-    4: SquareMemberRelation squareMemberRelation;
+    1: required string squareMid,
+    2: required string myMemberMid,
+    3: required string targetSquareMemberMid,
+    4: required SquareMemberRelation squareMemberRelation,
 }
 
 struct SquareEventNotifiedUpdateSquareFeatureSet {
-    1: SquareFeatureSet squareFeatureSet;
+    1: required SquareFeatureSet squareFeatureSet,
 }
 
 struct SquareEventNotifiedUpdateSquareChatFeatureSet {
-    1: SquareChatFeatureSet squareChatFeatureSet;
+    1: required SquareChatFeatureSet squareChatFeatureSet,
 }
 
 struct SquareEventNotifiedUpdateSquareNoteStatus {
-    1: string squareMid;
-    2: NoteStatus noteStatus;
+    1: required string squareMid,
+    2: required NoteStatus noteStatus,
 }
 
 struct SquareEventNotifiedUpdateSquareChatAnnouncement {
-    1: string squareChatMid;
-    2: i64 announcementSeq;
+    1: required string squareChatMid,
+    2: required i64 announcementSeq,
 }
 
 struct SquareEventNotificationJoinRequest {
-    1: string squareMid;
-    2: string squareName;
-    3: string requestMemberName;
-    4: string profileImageObsHash;
+    1: required string squareMid,
+    2: required string squareName,
+    3: required string requestMemberName,
+    4: required string profileImageObsHash,
 }
 
 struct SquareEventNotificationMemberUpdate {
-    1: string squareMid;
-    2: string squareName;
-    3: string profileImageObsHash;
+    1: required string squareMid,
+    2: required string squareName,
+    3: required string profileImageObsHash,
 }
 
 struct SquareEventNotificationSquareDelete {
-    1: string squareMid;
-    2: string squareName;
-    3: string profileImageObsHash;
+    1: required string squareMid,
+    2: required string squareName,
+    3: required string profileImageObsHash,
 }
 
 struct SquareEventNotificationSquareChatDelete {
-    1: string squareChatMid;
-    2: string squareChatName;
-    3: string profileImageObsHash;
+    1: required string squareChatMid,
+    2: required string squareChatName,
+    3: required string profileImageObsHash,
 }
 
 struct SquareEventNotificationMessage {
-    1: string squareChatMid;
-    2: SquareMessage squareMessage;
-    3: string senderDisplayName;
-    4: i32 unreadCount;
-    5: bool requiredToFetchChatEvents;
-    6: string mentionedMessageId;
-    7: NotifiedMessageType notifiedMessageType;
-    8: i32 reqSeq;
+    1: required string squareChatMid,
+    2: required SquareMessage squareMessage,
+    3: required string senderDisplayName,
+    4: required i32 unreadCount,
+    5: required bool requiredToFetchChatEvents,
+    6: required string mentionedMessageId,
+    7: required NotifiedMessageType notifiedMessageType,
+    8: required i32 reqSeq,
 }
 
 struct SquareEventNotificationPostAnnouncement {
-    1: string squareMid;
-    2: string squareName;
-    3: string squareProfileImageObsHash;
-    4: string actionUri;
+    1: required string squareMid,
+    2: required string squareName,
+    3: required string squareProfileImageObsHash,
+    4: required string actionUri,
 }
 
 enum NotificationPostType {
-    POST_MENTION         = 2;
-    POST_LIKE            = 3;
-    POST_COMMENT         = 4;
-    POST_COMMENT_MENTION = 5;
-    POST_COMMENT_LIKE    = 6;
-    POST_RELAY_JOIN      = 7;
+    POST_MENTION         = 2,
+    POST_LIKE            = 3,
+    POST_COMMENT         = 4,
+    POST_COMMENT_MENTION = 5,
+    POST_COMMENT_LIKE    = 6,
+    POST_RELAY_JOIN      = 7,
 }
 
 struct SquareEventNotificationPost {
-    1: string squareMid;
-    2: NotificationPostType notificationPostType;
-    3: string thumbnailObsHash;
-    4: string text;
-    5: string actionUri;
+    1: required string squareMid,
+    2: required NotificationPostType notificationPostType,
+    3: required string thumbnailObsHash,
+    4: required string text,
+    5: required string actionUri,
 }
 
 struct SquareEventNotificationNewChatMember {
-    1: string squareChatMid;
-    2: string squareChatName;
+    1: required string squareChatMid,
+    2: required string squareChatName,
 }
 
 struct SquareEventNotificationMessageReaction {
-    1: string squareChatMid;
-    2: string messageId;
-    3: string squareChatName;
-    4: string reactorName;
-    5: string thumbnailObsHash;
-    6: string messageText;
-    7: MessageReactionType type;
+    1: required string squareChatMid,
+    2: required string messageId,
+    3: required string squareChatName,
+    4: required string reactorName,
+    5: required string thumbnailObsHash,
+    6: required string messageText,
+    7: required MessageReactionType type,
 }
 
 struct SquareEventPayload {
-    1: SquareEventReceiveMessage receiveMessage;
-    2: SquareEventSendMessage sendMessage;
-    3: SquareEventNotifiedJoinSquareChat notifiedJoinSquareChat;
-    4: SquareEventNotifiedInviteIntoSquareChat notifiedInviteIntoSquareChat;
-    5: SquareEventNotifiedLeaveSquareChat notifiedLeaveSquareChat;
-    6: SquareEventNotifiedDestroyMessage notifiedDestroyMessage;
-    7: SquareEventNotifiedMarkAsRead notifiedMarkAsRead;
-    8: SquareEventNotifiedUpdateSquareMemberProfile notifiedUpdateSquareMemberProfile;
-    9: SquareEventNotifiedUpdateSquare notifiedUpdateSquare;
-    10: SquareEventNotifiedUpdateSquareMember notifiedUpdateSquareMember;
-    11: SquareEventNotifiedUpdateSquareChat notifiedUpdateSquareChat;
-    12: SquareEventNotifiedUpdateSquareChatMember notifiedUpdateSquareChatMember;
-    13: SquareEventNotifiedUpdateSquareAuthority notifiedUpdateSquareAuthority;
-    14: SquareEventNotifiedUpdateSquareStatus notifiedUpdateSquareStatus;
-    15: SquareEventNotifiedUpdateSquareChatStatus notifiedUpdateSquareChatStatus;
-    16: SquareEventNotifiedCreateSquareMember notifiedCreateSquareMember;
-    17: SquareEventNotifiedCreateSquareChatMember notifiedCreateSquareChatMember;
-    18: SquareEventNotifiedUpdateSquareMemberRelation notifiedUpdateSquareMemberRelation;
-    19: SquareEventNotifiedShutdownSquare notifiedShutdownSquare;
-    20: SquareEventNotifiedKickoutFromSquare notifiedKickoutFromSquare;
-    21: SquareEventNotifiedDeleteSquareChat notifiedDeleteSquareChat;
-    22: SquareEventNotificationJoinRequest notificationJoinRequest;
-    23: SquareEventNotificationMemberUpdate notificationJoined;
-    24: SquareEventNotificationMemberUpdate notificationPromoteCoadmin;
-    25: SquareEventNotificationMemberUpdate notificationPromoteAdmin;
-    26: SquareEventNotificationMemberUpdate notificationDemoteMember;
-    27: SquareEventNotificationMemberUpdate notificationKickedOut;
-    28: SquareEventNotificationSquareDelete notificationSquareDelete;
-    29: SquareEventNotificationSquareChatDelete notificationSquareChatDelete;
-    30: SquareEventNotificationMessage notificationMessage;
-    31: SquareEventNotifiedUpdateSquareChatProfileName notifiedUpdateSquareChatProfileName;
-    32: SquareEventNotifiedUpdateSquareChatProfileImage notifiedUpdateSquareChatProfileImage;
-    33: SquareEventNotifiedUpdateSquareFeatureSet notifiedUpdateSquareFeatureSet;
-    34: SquareEventNotifiedAddBot notifiedAddBot;
-    35: SquareEventNotifiedRemoveBot notifiedRemoveBot;
-    36: SquareEventNotifiedUpdateSquareNoteStatus notifiedUpdateSquareNoteStatus;
-    37: SquareEventNotifiedUpdateSquareChatAnnouncement notifiedUpdateSquareChatAnnouncement;
-    38: SquareEventNotifiedUpdateSquareChatMaxMemberCount notifiedUpdateSquareChatMaxMemberCount;
-    39: SquareEventNotificationPostAnnouncement notificationPostAnnouncement;
-    40: SquareEventNotificationPost notificationPost;
-    41: SquareEventMutateMessage mutateMessage;
-    42: SquareEventNotificationNewChatMember notificationNewChatMember;
-    43: SquareEventNotifiedUpdateReadonlyChat notifiedUpdateReadonlyChat;
-    44: SquareEventNotifiedUpdateMessageStatus notifiedUpdateMessageStatus;
-    45: SquareEventNotificationMessageReaction notificationMessageReaction;
-    46: SquareEventChatPopup chatPopup;
-    47: SquareEventNotifiedSystemMessage notifiedSystemMessage;
-    48: SquareEventNotifiedUpdateSquareChatFeatureSet notifiedUpdateSquareChatFeatureSet;
+    1: required SquareEventReceiveMessage receiveMessage,
+    2: required SquareEventSendMessage sendMessage,
+    3: required SquareEventNotifiedJoinSquareChat notifiedJoinSquareChat,
+    4: required SquareEventNotifiedInviteIntoSquareChat notifiedInviteIntoSquareChat,
+    5: required SquareEventNotifiedLeaveSquareChat notifiedLeaveSquareChat,
+    6: required SquareEventNotifiedDestroyMessage notifiedDestroyMessage,
+    7: required SquareEventNotifiedMarkAsRead notifiedMarkAsRead,
+    8: required SquareEventNotifiedUpdateSquareMemberProfile notifiedUpdateSquareMemberProfile,
+    9: required SquareEventNotifiedUpdateSquare notifiedUpdateSquare,
+    10: required SquareEventNotifiedUpdateSquareMember notifiedUpdateSquareMember,
+    11: required SquareEventNotifiedUpdateSquareChat notifiedUpdateSquareChat,
+    12: required SquareEventNotifiedUpdateSquareChatMember notifiedUpdateSquareChatMember,
+    13: required SquareEventNotifiedUpdateSquareAuthority notifiedUpdateSquareAuthority,
+    14: required SquareEventNotifiedUpdateSquareStatus notifiedUpdateSquareStatus,
+    15: required SquareEventNotifiedUpdateSquareChatStatus notifiedUpdateSquareChatStatus,
+    16: required SquareEventNotifiedCreateSquareMember notifiedCreateSquareMember,
+    17: required SquareEventNotifiedCreateSquareChatMember notifiedCreateSquareChatMember,
+    18: required SquareEventNotifiedUpdateSquareMemberRelation notifiedUpdateSquareMemberRelation,
+    19: required SquareEventNotifiedShutdownSquare notifiedShutdownSquare,
+    20: required SquareEventNotifiedKickoutFromSquare notifiedKickoutFromSquare,
+    21: required SquareEventNotifiedDeleteSquareChat notifiedDeleteSquareChat,
+    22: required SquareEventNotificationJoinRequest notificationJoinRequest,
+    23: required SquareEventNotificationMemberUpdate notificationJoined,
+    24: required SquareEventNotificationMemberUpdate notificationPromoteCoadmin,
+    25: required SquareEventNotificationMemberUpdate notificationPromoteAdmin,
+    26: required SquareEventNotificationMemberUpdate notificationDemoteMember,
+    27: required SquareEventNotificationMemberUpdate notificationKickedOut,
+    28: required SquareEventNotificationSquareDelete notificationSquareDelete,
+    29: required SquareEventNotificationSquareChatDelete notificationSquareChatDelete,
+    30: required SquareEventNotificationMessage notificationMessage,
+    31: required SquareEventNotifiedUpdateSquareChatProfileName notifiedUpdateSquareChatProfileName,
+    32: required SquareEventNotifiedUpdateSquareChatProfileImage notifiedUpdateSquareChatProfileImage,
+    33: required SquareEventNotifiedUpdateSquareFeatureSet notifiedUpdateSquareFeatureSet,
+    34: required SquareEventNotifiedAddBot notifiedAddBot,
+    35: required SquareEventNotifiedRemoveBot notifiedRemoveBot,
+    36: required SquareEventNotifiedUpdateSquareNoteStatus notifiedUpdateSquareNoteStatus,
+    37: required SquareEventNotifiedUpdateSquareChatAnnouncement notifiedUpdateSquareChatAnnouncement,
+    38: required SquareEventNotifiedUpdateSquareChatMaxMemberCount notifiedUpdateSquareChatMaxMemberCount,
+    39: required SquareEventNotificationPostAnnouncement notificationPostAnnouncement,
+    40: required SquareEventNotificationPost notificationPost,
+    41: required SquareEventMutateMessage mutateMessage,
+    42: required SquareEventNotificationNewChatMember notificationNewChatMember,
+    43: required SquareEventNotifiedUpdateReadonlyChat notifiedUpdateReadonlyChat,
+    44: required SquareEventNotifiedUpdateMessageStatus notifiedUpdateMessageStatus,
+    45: required SquareEventNotificationMessageReaction notificationMessageReaction,
+    46: required SquareEventChatPopup chatPopup,
+    47: required SquareEventNotifiedSystemMessage notifiedSystemMessage,
+    48: required SquareEventNotifiedUpdateSquareChatFeatureSet notifiedUpdateSquareChatFeatureSet,
 }
 
 struct SquareEvent {
-    2: i64 createdTime;
-    3: SquareEventType type;
-    4: SquareEventPayload payload;
-    5: string syncToken;
-    6: SquareEventStatus eventStatus;
+    2: required i64 createdTime,
+    3: required SquareEventType type,
+    4: required SquareEventPayload payload,
+    5: required string syncToken,
+    6: required SquareEventStatus eventStatus,
 }
 
 struct SendMessageResponse {
-    1: SquareMessage createdSquareMessage;
+    1: required SquareMessage createdSquareMessage,
 }
 
 struct UnsendMessageResponse {
-    1: SquareMessage unsentMessage;
+    1: required SquareMessage unsentMessage,
 }
 
 struct FetchMyEventsResponse {
-    1: SubscriptionState subscription;
-    2: list<SquareEvent> events;
-    3: string syncToken;
-    4: string continuationToken;
+    1: required SubscriptionState subscription,
+    2: required list<SquareEvent> events,
+    3: required string syncToken,
+    4: required string continuationToken,
 }
 
 struct GetSquareEmidResponse {
-    1: string squareEmid;
+    1: required string squareEmid,
 }
 
 struct GetSquareMembersBySquareResponse {
-    1: list<SquareMember> members;
+    1: required list<SquareMember> members,
 }
 
 struct ManualRepairResponse {
-    1: list<SquareEvent> events;
-    2: string syncToken;
-    3: string continuationToken;
+    1: required list<SquareEvent> events,
+    2: required string syncToken,
+    3: required string continuationToken,
 }
 
 struct InviteIntoSquareChatResponse {
-    1: list<string> inviteeMids;
+    1: required list<string> inviteeMids,
 }
 
 struct InviteToSquareResponse {
 }
 
 struct GetJoinedSquaresResponse {
-    1: list<Square> squares;
-    2: map<string, SquareMember> members;
-    3: map<string, SquareAuthority> authorities;
-    4: map<string, SquareStatus> statuses;
-    5: string continuationToken;
-    6: map<string, NoteStatus> noteStatuses;
+    1: required list<Square> squares,
+    2: required map<string, SquareMember> members,
+    3: required map<string, SquareAuthority> authorities,
+    4: required map<string, SquareStatus> statuses,
+    5: required string continuationToken,
+    6: required map<string, NoteStatus> noteStatuses,
 }
 
 struct MarkAsReadResponse {
 }
 
 struct ReactToMessageResponse {
-    1: SquareMessageReaction reaction;
-    2: SquareMessageReactionStatus status;
+    1: required SquareMessageReaction reaction,
+    2: required SquareMessageReactionStatus status,
 }
 
 struct FindSquareByInvitationTicketResponse {
-    1: Square square;
-    2: SquareMember myMembership;
-    3: SquareAuthority squareAuthority;
-    4: SquareStatus squareStatus;
-    5: SquareFeatureSet squareFeatureSet;
-    6: NoteStatus noteStatus;
-    7: SquareChat chat;
-    8: SquareChatStatus chatStatus;
+    1: required Square square,
+    2: required SquareMember myMembership,
+    3: required SquareAuthority squareAuthority,
+    4: required SquareStatus squareStatus,
+    5: required SquareFeatureSet squareFeatureSet,
+    6: required NoteStatus noteStatus,
+    7: required SquareChat chat,
+    8: required SquareChatStatus chatStatus,
 }
 
 struct SubscriptionState {
-    1: i64 subscriptionId;
-    2: i64 ttlMillis;
+    1: required i64 subscriptionId,
+    2: required i64 ttlMillis,
 }
 
 struct FetchSquareChatEventsResponse {
-    1: SubscriptionState subscription;
-    2: list<SquareEvent> events;
-    3: string syncToken;
-    4: string continuationToken;
+    1: required SubscriptionState subscription,
+    2: required list<SquareEvent> events,
+    3: required string syncToken,
+    4: required string continuationToken,
 }
 
 struct GetSquareResponse {
-    1: Square square;
-    2: SquareMember myMembership;
-    3: SquareAuthority squareAuthority;
-    4: SquareStatus squareStatus;
-    5: SquareFeatureSet squareFeatureSet;
-    6: NoteStatus noteStatus;
+    1: required Square square,
+    2: required SquareMember myMembership,
+    3: required SquareAuthority squareAuthority,
+    4: required SquareStatus squareStatus,
+    5: required SquareFeatureSet squareFeatureSet,
+    6: required NoteStatus noteStatus,
 }
 
 struct GetJoinableSquareChatsResponse {
-    1: list<SquareChat> squareChats;
-    2: string continuationToken;
-    3: i32 totalSquareChatCount;
-    4: map<string, SquareChatStatus> squareChatStatuses;
+    1: required list<SquareChat> squareChats,
+    2: required string continuationToken,
+    3: required i32 totalSquareChatCount,
+    4: required map<string, SquareChatStatus> squareChatStatuses,
 }
 
 struct CreateSquareResponse {
-    1: Square square;
-    2: SquareMember creator;
-    3: SquareAuthority authority;
-    4: SquareStatus status;
-    5: SquareFeatureSet featureSet;
-    6: NoteStatus noteStatus;
-    7: SquareChat squareChat;
-    8: SquareChatStatus squareChatStatus;
-    9: SquareChatMember squareChatMember;
-    10: SquareChatFeatureSet squareChatFeatureSet;
+    1: required Square square,
+    2: required SquareMember creator,
+    3: required SquareAuthority authority,
+    4: required SquareStatus status,
+    5: required SquareFeatureSet featureSet,
+    6: required NoteStatus noteStatus,
+    7: required SquareChat squareChat,
+    8: required SquareChatStatus squareChatStatus,
+    9: required SquareChatMember squareChatMember,
+    10: required SquareChatFeatureSet squareChatFeatureSet,
 }
 
 struct TextMessageAnnouncementContents {
-    1: string messageId;
-    2: string text;
-    3: string senderSquareMemberMid;
-    4: i64 createdAt;
-    5: string senderMid;
+    1: required string messageId,
+    2: required string text,
+    3: required string senderSquareMemberMid,
+    4: required i64 createdAt,
+    5: required string senderMid,
 }
 
 struct SquareChatAnnouncementContents {
-    1: TextMessageAnnouncementContents textMessageAnnouncementContents;
+    1: required TextMessageAnnouncementContents textMessageAnnouncementContents,
 }
 
 struct SquareChatAnnouncement {
-    1: i64 announcementSeq;
-    2: SquareChatAnnouncementType type;
-    3: SquareChatAnnouncementContents contents;
-    4: i64 createdAt;
-    5: string creator;
+    1: required i64 announcementSeq,
+    2: required SquareChatAnnouncementType type,
+    3: required SquareChatAnnouncementContents contents,
+    4: required i64 createdAt,
+    5: required string creator,
 }
 
 struct GetSquareChatAnnouncementsResponse {
-    1: list<SquareChatAnnouncement> announcements;
+    1: required list<SquareChatAnnouncement> announcements,
 }
 
 struct GetSquareFeatureSetResponse {
-    1: SquareFeatureSet squareFeatureSet;
+    1: required SquareFeatureSet squareFeatureSet,
 }
 
 struct GetSquareChatFeatureSetResponse {
-    1: SquareChatFeatureSet squareChatFeatureSet;
+    1: required SquareChatFeatureSet squareChatFeatureSet,
 }
 
 struct SyncSquareMembersResponse {
-    1: list<SquareMember> updatedSquareMembers;
+    1: required list<SquareMember> updatedSquareMembers,
 }
 
 enum SquareChatThreadState {
     ACTIVE   = 1,
-    INACTIVE = 2;
+    INACTIVE = 2,
 }
 
 struct SquareChatThread {
-    1: string squareChatThreadMid;
-    2: string squareChatMid;
-    3: string squareMid;
-    4: string messageId;
-    5: SquareChatThreadState state;
+    1: required string squareChatThreadMid,
+    2: required string squareChatMid,
+    3: required string squareMid,
+    4: required string messageId,
+    5: required SquareChatThreadState state,
 }
 
 struct GetJoinedSquareChatThreadsResponse {
-    1: list<SquareChatThread> squareChatThreads;
-    2: string continuationToken;
+    1: required list<SquareChatThread> squareChatThreads,
+    2: required string continuationToken,
 }
 
 struct CreateSquareChatThreadResponse {
-    1: SquareChatThread squareChatThread;
+    1: required SquareChatThread squareChatThread,
 }
 
 enum SquareChatThreadeMembershipState {
     ACTIVATED   = 1,
-    DEACTIVATED = 2;
+    DEACTIVATED = 2,
 }
 
 struct SquareChatThreadMember {
-    1: string squareMemberMid;
-    2: string squareChatThreadMid;
-    3: i64 revision;
-    4: SquareChatThreadeMembershipState membershipState;
+    1: required string squareMemberMid,
+    2: required string squareChatThreadMid,
+    3: required i64 revision,
+    4: required SquareChatThreadeMembershipState membershipState,
 }
 
 struct GetSquareChatThreadResponse {
-    1: SquareChatThread squareChatThread;
-    2: SquareChatThreadMember mySquareChatThreadMember;
+    1: required SquareChatThread squareChatThread,
+    2: required SquareChatThreadMember mySquareChatThreadMember,
 }
 
 struct JoinSquareChatThreadResponse {
-    1: SquareChatThread squareChatThread;
+    1: required SquareChatThread squareChatThread,
 }

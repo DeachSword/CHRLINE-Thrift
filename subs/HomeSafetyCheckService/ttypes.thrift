@@ -1,22 +1,17 @@
-
-
-
 struct DisasterInfo {
-    1: string   disasterId;            
-    2: string   title;                 
-    3: string   region;                
-    4: string   disasterDescription;   
-    5: string   seeMoreUrl;            
-    7: i32      status;                
+    1: required string disasterId,
+    2: required string title,
+    3: required string region,
+    4: required string disasterDescription,
+    5: required string seeMoreUrl,
+    7: required i32 status,
 }
 
 struct GetDisasterCasesRequest {
 }
 
 struct GetDisasterCasesResponse {
-    1: list<DisasterInfo>   disasters;         
-    2: list<string>         messageTemplate;   
-    3: i64                  ttlInMillis;       
+    1: required list<DisasterInfo> disasters,
+    2: required list<string> messageTemplate,
+    3: required i64 ttlInMillis,
 }
-
-
