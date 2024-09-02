@@ -479,6 +479,7 @@ struct SquareAuthority {
     12: required SquareMemberRole createSquareChatAnnouncement,
     13: required SquareMemberRole updateMaxChatMemberCount,
     14: required SquareMemberRole useReadonlyDefaultChat,
+    15: required SquareMemberRole sendAllMention,
 }
 
 struct SquareEventNotifiedUpdateSquareAuthority {
