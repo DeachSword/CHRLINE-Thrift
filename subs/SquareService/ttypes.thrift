@@ -580,6 +580,106 @@ struct SquareEventNotifiedUpdateSquareChatFeatureSet {
     1: required SquareChatFeatureSet squareChatFeatureSet,
 }
 
+struct SquareEventNotifiedUpdateLiveTalkInfo {
+    1: required string squareChatMid,
+    2: required LiveTalk liveTalk,
+    3: required bool liveTalkOnAir,
+}
+
+struct SquareEventNotifiedUpdateLiveTalk {
+    1: required string squareChatMid,
+    2: required string sessionId,
+    3: required bool liveTalkOnAir,
+}
+
+struct SquareEventNotificationLiveTalk {
+    1: required string squareChatMid,
+    2: required string liveTalkInvitationTicket,
+    3: required string squareChatName,
+    4: required string chatImageObsHash,
+}
+
+struct SquareEventNotificationThreadMessage {
+    1: required string threadMid,
+    2: required string chatMid,
+    3: required SquareMessage squareMessage,
+    4: required string senderDisplayName,
+    5: required i64 unreadCount,
+    6: required i64 totalMessageCount,
+    7: required string threadRootMessageId,
+}
+
+struct SquareEventNotificationThreadMessageReaction {
+    1: required string threadMid,
+    2: required string chatMid,
+    3: required string messageId,
+    4: required string senderDisplayName,
+    5: required string squareChatName,
+    6: required string reactorName,
+    7: required string thumbnailObsHash,
+}
+
+enum SquareThreadState {
+    ALIVE   = 1,
+    DELETED = 2,
+}
+
+struct SquareThread {
+    1: required string threadMid,
+    2: required string chatMid,
+    3: required string squareMid,
+    4: required string messageId,
+    5: required SquareThreadState state,
+    6: required i64 expiresAt,
+    7: required i64 readOnlyAt,
+    8: required i64 revision,
+}
+
+struct SquareEventNotifiedUpdateThread {
+    1: required SquareThread squareThread,
+}
+
+struct SquareEventNotifiedUpdateThreadStatus {
+    1: required string threadMid,
+    2: required string chatMid,
+    3: required i64 unreadCount,
+    4: required string markAsReadMessageId,
+}
+
+enum SquareThreadMembershipState {
+    JOINED = 1,
+    LEFT   = 2,
+}
+
+struct SquareThreadMember {
+    1: required string squareMemberMid,
+    2: required string threadMid,
+    3: required string chatMid,
+    4: required i64 revision,
+    5: required SquareThreadMembershipState membershipState,
+}
+
+struct SquareEventNotifiedUpdateThreadMember {
+    1: required SquareThreadMember threadMember,
+    2: required SquareThread squareThread,
+    3: required SquareMessage threadRootMessage,
+    4: required i64 totalMessageCount,
+    5: required SquareMessage lastMessage,
+    6: required string lastMessageSenderDisplayName,
+}
+
+struct SquareEventNotifiedUpdateThreadRootMessage {
+    1: required SquareThread squareThread,
+}
+
+struct SquareEventNotifiedUpdateThreadRootMessageStatus {
+    1: required string chatMid,
+    2: required string threadMid,
+    3: required string threadRootMessageId,
+    4: required i64 totalMessageCount,
+    5: required i64 lastMessageAt,
+}
+
 struct SquareEventNotifiedUpdateSquareNoteStatus {
     1: required string squareMid,
     2: required NoteStatus noteStatus,
@@ -714,6 +814,16 @@ struct SquareEventPayload {
     46: required SquareEventChatPopup chatPopup,
     47: required SquareEventNotifiedSystemMessage notifiedSystemMessage,
     48: required SquareEventNotifiedUpdateSquareChatFeatureSet notifiedUpdateSquareChatFeatureSet,
+    49: optional SquareEventNotifiedUpdateLiveTalkInfo notifiedUpdateLiveTalkInfo,
+    50: optional SquareEventNotifiedUpdateLiveTalk notifiedUpdateLiveTalk,
+    51: optional SquareEventNotificationLiveTalk notificationLiveTalk,
+    52: optional SquareEventNotificationThreadMessage notificationThreadMessage,
+    53: optional SquareEventNotificationThreadMessageReaction notificationThreadMessageReaction,
+    54: optional SquareEventNotifiedUpdateThread notifiedUpdateThread,
+    55: optional SquareEventNotifiedUpdateThreadStatus notifiedUpdateThreadStatus,
+    56: optional SquareEventNotifiedUpdateThreadMember notifiedUpdateThreadMember,
+    57: optional SquareEventNotifiedUpdateThreadRootMessage notifiedUpdateThreadRootMessage,
+    58: optional SquareEventNotifiedUpdateThreadRootMessageStatus notifiedUpdateThreadRootMessageStatus,
 }
 
 struct SquareEvent {
