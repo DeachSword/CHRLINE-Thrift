@@ -1,4 +1,5 @@
 include "../Types.thrift"
+include "../SquareLiveTalkService/ttypes.thrift"
 
 enum SquareMessageState {
     SENT      = 1,
@@ -432,12 +433,17 @@ enum NotifiedMessageType {
     REPLY   = 2,
 }
 
+enum StatusBadge {
+    LIVETALK_ONAIR = 1,
+}
+
 struct SquareChatStatusWithoutMessage {
     1: required i32 memberCount,
     2: required i32 unreadMessageCount,
     3: required string markedAsReadMessageId,
     4: required string mentionedMessageId,
     5: required NotifiedMessageType notifiedMessageType,
+    6: required list<StatusBadge> badges,
 }
 
 struct SquareEventNotifiedUpdateSquareChatStatus {
