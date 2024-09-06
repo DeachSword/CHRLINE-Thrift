@@ -74,11 +74,17 @@ enum SquareEventStatus {
     ALERT_DISABLED = 2,
 }
 
+struct SquareMessageThreadInfo {
+    1: required string chatThreadMid,
+    2: required bool threadRoot,
+}
+
 struct SquareMessage {
     1: required Message message,
     3: required MIDType fromType,
     4: required i64 squareMessageRevision,
     5: required SquareMessageState state,
+    6: optional SquareMessageThreadInfo threadInfo,
 }
 
 enum SquareMembershipState {
