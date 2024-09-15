@@ -451,6 +451,7 @@ struct GroupExtra {
     5: required map<string, i64> inviteeMids,
     6: required bool addFriendDisabled,
     7: required bool ticketDisabled,
+    8: required bool autoName,
 }
 
 struct PeerExtra {
