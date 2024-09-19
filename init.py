@@ -10,6 +10,10 @@
 '''
 import subprocess
 
+# DEV ENV:
+#   - CHRLINE   v2.6.0
+#   - thrift    v0.20.0
+#       - py:enum
 files = [
     r'./subs/Types.thrift',
     r'./subs/Exceptions.thrift',

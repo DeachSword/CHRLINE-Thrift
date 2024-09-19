@@ -354,6 +354,7 @@ struct SquareEventNotifiedUpdateReadonlyChat {
 }
 
 enum MessageStatusType {
+    MESSAGE_REACTION = 0,
 }
 
 struct MessageStatusContents {
