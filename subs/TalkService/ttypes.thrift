@@ -119,6 +119,9 @@ struct Profile {
     37: required AvatarProfile avatarProfile,
     38: required bool nftProfile,
     39: required PictureSource pictureSource,
+    40: optional string profileId,
+    41: optional ProfileType profileType,
+    42: optional i64 createdTimeMillis,
 }
 
 struct AvatarProfile {

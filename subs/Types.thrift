@@ -1043,26 +1043,29 @@ enum SyncTriggerReason {
 }
 
 enum NotificationStatus {
-    NOTIFICATION_ITEM_EXIST        = 1,
-    TIMELINE_ITEM_EXIST            = 2,
-    NOTE_GROUP_NEW_ITEM_EXIST      = 4,
-    TIMELINE_BUDDYGROUP_CHANGED    = 8,
-    NOTE_ONE_TO_ONE_NEW_ITEM_EXIST = 16,
-    ALBUM_ITEM_EXIST               = 32,
-    TIMELINE_ITEM_DELETED          = 64,
-    OTOGROUP_ITEM_EXIST            = 128,
-    GROUPHOME_NEW_ITEM_EXIST       = 256,
-    GROUPHOME_HIDDEN_ITEM_CHANGED  = 512,
-    NOTIFICATION_ITEM_CHANGED      = 1024,
-    BEAD_ITEM_HIDE                 = 2048,
-    BEAD_ITEM_SHOW                 = 4096,
-    LINE_TICKET_UPDATED            = 8192,
-    TIMELINE_STORY_UPDATED         = 16384,
-    SMARTCH_UPDATED                = 32768,
-    AVATAR_UPDATED                 = 65536,
-    HOME_NOTIFICATION_ITEM_EXIST   = 131072,
-    TIMELINE_REBOOT_COMPLETED      = 262144,
-    TIMELINE_GUIDE_STORY_UPDATED   = 524288,
+    NOTIFICATION_ITEM_EXIST         = 1,
+    TIMELINE_ITEM_EXIST             = 2,
+    NOTE_GROUP_NEW_ITEM_EXIST       = 4,
+    TIMELINE_BUDDYGROUP_CHANGED     = 8,
+    NOTE_ONE_TO_ONE_NEW_ITEM_EXIST  = 16,
+    ALBUM_ITEM_EXIST                = 32,
+    TIMELINE_ITEM_DELETED           = 64,
+    OTOGROUP_ITEM_EXIST             = 128,
+    GROUPHOME_NEW_ITEM_EXIST        = 256,
+    GROUPHOME_HIDDEN_ITEM_CHANGED   = 512,
+    NOTIFICATION_ITEM_CHANGED       = 1024,
+    BEAD_ITEM_HIDE                  = 2048,
+    BEAD_ITEM_SHOW                  = 4096,
+    LINE_TICKET_UPDATED             = 8192,
+    TIMELINE_STORY_UPDATED          = 16384,
+    SMARTCH_UPDATED                 = 32768,
+    AVATAR_UPDATED                  = 65536,
+    HOME_NOTIFICATION_ITEM_EXIST    = 131072,
+    TIMELINE_REBOOT_COMPLETED       = 262144,
+    TIMELINE_GUIDE_STORY_UPDATED    = 524288,
+    TIMELINE_F2F_COMPLETED          = 1048576,
+    VOOM_LIVE_STATE_CHANGED         = 2097152,
+    VOOM_ACTIVITY_REWARD_ITEM_EXIST = 4194304,
 }
 
 enum GlobalEventType {
@@ -1163,4 +1166,9 @@ enum RejectionReason {
     TOO_MANY_FRIENDS    = 3,
     TOO_MANY_REQUESTS   = 4,
     MALFORMED_REQUEST   = 5,
+}
+
+enum ProfileType {
+    DEFAULT       = 1,
+    MULTI_PROFILE = 2,
 }
