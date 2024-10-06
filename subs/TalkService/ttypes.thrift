@@ -234,6 +234,7 @@ struct Contact {
     46: required string friendRingbackTone,
     47: required bool nftProfile,
     48: required PictureSource pictureSource,
+    49: optional string profileId,
 }
 
 struct GetContactsV2Request {
