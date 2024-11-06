@@ -474,7 +474,8 @@ struct SquareChatMember {
 
 struct SquareEventNotifiedUpdateSquareChatMember {
     1: required string squareChatMid,
-    2: required SquareChatMember squareChatMember,
+    2: optional SquareChatMember _squareChatMember,
+    3: optional SquareChatMember squareChatMember,
 }
 
 struct SquareAuthority {
