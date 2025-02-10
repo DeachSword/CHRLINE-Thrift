@@ -255,6 +255,12 @@ enum BooleanState {
     ON   = 2,
 }
 
+struct SneakPeekContent {
+    1: optional string title,
+    2: optional string desc,
+    3: optional list<string> imageObsHashes,
+}
+
 struct Square {
     1: required string mid,
     2: required string name,
@@ -273,6 +279,10 @@ struct Square {
     15: required BooleanState adultOnly,
     16: required list<string> svcTags,
     17: required i64 createdAt,
+    18: optional bool paidSquare,
+    19: optional list<string> benefitKeywords,
+    20: optional list<SneakPeekContent> sneakPeekContents,
+    21: optional i64 expireAt,
 }
 
 struct SquareEventNotifiedShutdownSquare {
