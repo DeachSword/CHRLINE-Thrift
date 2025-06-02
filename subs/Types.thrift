@@ -1119,6 +1119,7 @@ enum GlobalEventType {
     LYP_FONT                         = 47,
     TIMELINESTORY_OA                 = 48,
     TRAVEL                           = 49,
+    PORTALTAB_GNB_DOT                = 50,
 }
 
 enum SyncCategories {

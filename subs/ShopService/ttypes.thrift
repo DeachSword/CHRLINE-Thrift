@@ -144,6 +144,7 @@ struct ProductDetail {
     106: required bool ableToBeGivenAsPresent,
     107: required bool madeWithStickerMaker,
     108: required string customDownloadButtonLabel,
+    109: required bool generatedByAI,
 }
 
 struct ApplicationVersionRange {
@@ -174,6 +175,16 @@ struct ProductProperty {
     3: required SticonProperty sticonProperty,
 }
 
+enum CombinationStickerUseType {
+    FORBIDDEN    = 0,
+    ALLOWED      = 1,
+    SAME_PACKAGE = 2,
+}
+
+struct CombinationStickerProperty {
+    1: optional CombinationStickerUseType useType,
+}
+
 struct StickerProperty {
     1: required bool hasAnimation,
     2: required bool hasSound,
@@ -190,6 +201,7 @@ struct StickerProperty {
     14: required PopupLayer popupLayer,
     15: required bool cpdProduct,
     16: required bool availableForCombinationSticker,
+    17: optional CombinationStickerProperty combinationStickerProperty,
 }
 
 struct ThemeProperty {
