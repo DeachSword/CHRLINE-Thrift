@@ -42,6 +42,8 @@ files = [
     r'./subs/PremiumFontService/PremiumFontService.thrift',
     r'./subs/DeviceAttestationService/ttypes.thrift',
     r'./subs/DeviceAttestationService/DeviceAttestationService.thrift',
+    r'./subs/CalendarService/ttypes.thrift',
+    r'./subs/CalendarService/main.thrift',
 ]
 cache_file = r'./CHRLINE_ALL.thrift'
 

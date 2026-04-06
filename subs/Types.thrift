@@ -570,15 +570,17 @@ enum E2EEKeyBackupErrorCode {
 }
 
 enum TalkSyncReason {
-    UNSPECIFIED    = 0,
-    UNKNOWN        = 1,
-    INITIALIZATION = 2,
-    OPERATION      = 3,
-    FULL_SYNC      = 4,
-    AUTO_REPAIR    = 5,
-    MANUAL_REPAIR  = 6,
-    INTERNAL       = 7,
-    USER_INITIATED = 8,
+    UNSPECIFIED            = 0,
+    UNKNOWN                = 1,
+    INITIALIZATION         = 2,
+    OPERATION              = 3,
+    FULL_SYNC              = 4,
+    AUTO_REPAIR            = 5,
+    MANUAL_REPAIR          = 6,
+    INTERNAL               = 7,
+    USER_INITIATED         = 8,
+    PREMIUM_BACKUP_RESTORE = 9,
+    PUSH_TO_LOAD           = 10,
 }
 
 enum OpType {
@@ -1120,6 +1122,7 @@ enum GlobalEventType {
     TIMELINESTORY_OA                 = 48,
     TRAVEL                           = 49,
     PORTALTAB_GNB_DOT                = 50,
+    NEWS_ROW_TAB                     = 51,
 }
 
 enum SyncCategories {
@@ -1131,6 +1134,7 @@ enum SyncCategories {
     GROUP          = 5,
     E2EE           = 6,
     MESSAGE        = 7,
+    MULTI_PROFILE  = 8,
 }
 
 enum MediaMessageFlow {

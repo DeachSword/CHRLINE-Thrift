@@ -173,8 +173,16 @@ struct Reaction {
     3: required ReactionType reactionType,
 }
 
+struct PaidReactionType {
+    1: optional string productId,
+    2: optional string emojiId,
+    3: optional SticonResourceType resourceType,
+    4: required i64 version,
+}
+
 struct ReactionType {
-    1: required PredefinedReactionType predefinedReactionType,
+    1: optional PredefinedReactionType predefinedReactionType,
+    2: optional PaidReactionType paidReactionType,
 }
 
 struct ReactRequest {
