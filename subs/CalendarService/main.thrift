@@ -9,3 +9,14 @@ service CalendarService {
     CreatePersonalCalendarResponse createPersonalCalendar() throws(),
     DeletePersonalCalendarResponse deletePersonalCalendar() throws(),
 }
+
+service CalendarEventService {
+    ListEventsResponse listEvents() throws(),
+    UpdateEventsResponse updateEvents() throws(),
+    CreateEventsResponse createEvents() throws(),
+    DeleteEventsResponse deleteEvents() throws(),
+}
+
+service CalendarInvitationService {
+    RespondToInvitationResponse respondToInvitation() throws(),
+}
