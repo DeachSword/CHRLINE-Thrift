@@ -95,7 +95,7 @@ struct CalendarEvent {
     10: optional string description,
     11: optional CalendarRecurrence recurrence,
     12: optional list<CalendarInvitee> invitees,
-    13: optional list<i32> reminder,
+    13: optional list<CalendarReminderType> reminder,
     14: optional bool isDeleted,
     15: optional string messageId,
     16: optional list<CalendarChildEvent> recurrenceChildEvents,
@@ -132,7 +132,7 @@ struct CalendarChildEvent {
     7: optional string url,
     8: optional string description,
     9: optional list<CalendarInvitee> invitees,
-    10: optional list<i32> reminder,
+    10: optional list<CalendarReminderType> reminder,
     11: optional bool isDeleted,
     12: optional string messageId,
     13: optional i64 recurId,
@@ -185,4 +185,15 @@ enum CalendarInviteeStatus {
     INVITATION_STATUS_NEEDS_ACTION = 1,
     INVITATION_STATUS_ACCEPTED     = 2,
     INVITATION_STATUS_DECLINED     = 3,
+}
+
+enum CalendarReminderType {
+    UNRECOGNIZED                         = -1,
+    REMINDER_UNSPECIFIED                 = 0,
+    REMINDER_ONE_HOUR_BEFORE             = 1,
+    REMINDER_TWO_HOUR_BEFORE             = 3,
+    REMINDER_ONE_DAY_BEFORE              = 4,
+    REMINDER_TWO_DAY_BEFORE              = 5,
+    REMINDER_1200_ON_THE_DAY_BEFORE      = 2,
+    REMINDER_1200_ON_THE_TWO_DAYS_BEFORE = 6,
 }
