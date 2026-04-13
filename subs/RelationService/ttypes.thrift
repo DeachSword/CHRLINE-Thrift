@@ -130,3 +130,8 @@ struct GetContactCalendarEventResponse {
 struct GetContactCalendarEventsResponse {
     1: required list<GetContactCalendarEventResponse> responses,
 }
+
+struct GetUserFriendIdsResponse {
+    1: required set<string> userFriendMids,
+    2: optional string nextUserPageToken,
+}
