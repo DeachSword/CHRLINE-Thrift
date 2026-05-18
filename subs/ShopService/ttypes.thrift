@@ -145,6 +145,7 @@ struct ProductDetail {
     107: required bool madeWithStickerMaker,
     108: required string customDownloadButtonLabel,
     109: required bool generatedByAI,
+    110: optional ProductUsageState usageState,
 }
 
 struct ApplicationVersionRange {
@@ -1220,4 +1221,9 @@ struct AcceptSubscriptionAgreementResponse {
 
 struct ShouldShowWelcomeStickerBannerResponse {
     1: required bool shouldShowBanner,
+}
+
+enum ProductUsageState {
+    DENY  = 0,
+    ALLOW = 1,
 }
