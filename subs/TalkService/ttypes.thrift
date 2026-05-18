@@ -165,6 +165,7 @@ struct Message {
     24: required ServiceCode relatedMessageServiceCode,
     25: required AppExtensionType appExtensionType,
     27: required list<Reaction> reactions,
+    28: optional i64 updatedTime,
 }
 
 struct Reaction {
@@ -243,6 +244,8 @@ struct Contact {
     47: required bool nftProfile,
     48: required PictureSource pictureSource,
     49: optional string profileId,
+    50: optional bool premiumBlocked,
+    51: optional bool hiddenFromList,
 }
 
 struct GetContactsV2Request {

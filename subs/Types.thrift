@@ -250,6 +250,11 @@ enum ErrorCode {
     USER_NOT_STICON_OWNER                                 = 121,
     REFRESH_MEDIA_FLOW                                    = 122,
     EXCEED_FOLLOWER_LIMIT                                 = 123,
+    INCOMPATIBLE_APP_TYPE                                 = 124,
+    NOT_PREMIUM                                           = 125,
+    BITMAX_ACCOUNT_EXIST                                  = 126,
+    MESSAGE_NOT_EDITABLE                                  = 127,
+    MESSAGE_NOT_EDITABLE_TIMELIMIT                        = 128,
 }
 
 enum LiffErrorCode {
@@ -1068,6 +1073,10 @@ enum NotificationStatus {
     TIMELINE_F2F_COMPLETED          = 1048576,
     VOOM_LIVE_STATE_CHANGED         = 2097152,
     VOOM_ACTIVITY_REWARD_ITEM_EXIST = 4194304,
+    LINE_TODAY_PROFILE_UPDATED      = 8388608,
+    AI_FRIENDS_EVENT_EXIST          = 16777216,
+    CALENDAR_ITEM_EXIST             = 33554432,
+    WALLET_NOTIFICATION_ITEM_EXIST  = 67108864,
 }
 
 enum GlobalEventType {
@@ -1123,6 +1132,12 @@ enum GlobalEventType {
     TRAVEL                           = 49,
     PORTALTAB_GNB_DOT                = 50,
     NEWS_ROW_TAB                     = 51,
+    GCS_REFRESH                      = 52,
+    GCS_REFRESH_ALL                  = 53,
+    ASSET_META_POPUP                 = 54,
+    AI_FRIENDS                       = 55,
+    COMMERCE_TW_TAB                  = 56,
+    PREMIUM_PRODUCT_DEFINITION       = 57,
 }
 
 enum SyncCategories {
